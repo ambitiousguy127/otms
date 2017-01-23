@@ -1,0 +1,67 @@
+[viewBag]
+==
+<?php
+use Ten31\Dictionnary\Models\Settings;
+use Ten31\Otms\Models\News;
+use Ten31\Otms\Models\CaseStudy;
+use Ten31\Otms\Models\Post;
+use Ten31\Otms\Models\Download;
+use Ten31\Otms\Models\Functions;
+
+function onStart(){
+
+    $lang = Functions::getCurrentLanguage();
+    $translated_cases = Functions::getTranslatedModels('ten31\Otms\Models\CaseStudy',$lang);
+    $translated_news = Functions::getTranslatedModels('ten31\Otms\Models\News',$lang);
+    $translated_posts = Functions::getTranslatedModels('ten31\Otms\Models\Post',$lang);
+    $translated_downloads = Functions::getTranslatedModels('ten31\Otms\Models\Download',$lang);
+    
+    $this['news'] = News::where('active', 1)->whereIn('id', $translated_news)->orderBy('date', 'desc')->first();
+    $this['post'] = Post::where('active', 1)->whereIn('id', $translated_posts)->orderBy('date', 'desc')->first();
+    $this['download'] = Download::where('active', 1)->whereIn('id', $translated_downloads)->orderBy('date', 'desc')->first();
+    $this['casestudy'] = CaseStudy::where('active', 1)->whereIn('id', $translated_cases)->orderBy('date', 'desc')->first();
+    //debug($this['highlighted']->getIndexIllustration());
+}
+?>
+==
+<div class="library">
+    <h2>{{'资料库'|_}}</h2>
+    <ul class="media-list">
+        <li class="media">
+            <div class="media-left">
+                <a href="{{ 'dynamic/post'|page({ slug: post.slug }) }}"> <img class="media-object" src="{{post.getThumbnail}}" alt="{{post.title}}"> </a>
+            </div>
+            <div class="media-body">
+                <h3 class="media-heading">{{'博客'|_}}</h3>
+                <p><a href="{{ 'dynamic/post'|page({ slug: post.slug }) }}">{{post.title}}</a></p>
+            </div>
+        </li>
+        <li class="media">
+            <div class="media-left">
+                <a href="{{ 'dynamic/download'|page({ slug: download.slug }) }}"> <img class="media-object" src="{{download.getThumbnail}}" alt="{{download.title}}"> </a>
+            </div>
+            <div class="media-body">
+                <h3 class="media-heading">{{'下载'|_}}</h3>
+                <p><a href="{{ 'dynamic/download'|page({ slug: download.slug }) }}">{{download.title}}</a></p>
+            </div>
+        </li>
+        <li class="media">
+            <div class="media-left">
+                <a href="{{ 'dynamic/case-study'|page({ slug: casestudy.slug }) }}"> <img class="media-object" src="{{casestudy.getThumbnail}}" alt="{{casestudy.title}}"> </a>
+            </div>
+            <div class="media-body">
+                <h3 class="media-heading">{{'成功案例'|_}}</h3>
+                <p><a href="{{ 'dynamic/case-study'|page({ slug: casestudy.slug }) }}">{{casestudy.title}}</a></p>
+            </div>
+        </li>
+        <li class="media">
+            <div class="media-left">
+                <a href="{{ 'dynamic/news-details'|page({ slug: news.slug }) }}"> <img class="media-object" src="{{news.getThumbnail}}" alt="{{news.title}}"> </a>
+            </div>
+            <div class="media-body">
+                <h3 class="media-heading">{{'新闻资讯'|_}}</h3>
+                <p><a href="{{ 'dynamic/news-details'|page({ slug: news.slug }) }}">{{news.title}}</a></p>
+            </div>
+        </li>
+    </ul>
+</div>

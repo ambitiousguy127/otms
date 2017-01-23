@@ -1,0 +1,16 @@
+[viewBag]
+==
+<div class="partners-content">
+    <div class="row nomargin">
+        {% component 'editable' file="about/partners-header" %}
+        <a href="http://www.otms.com/contact">
+            <button class="button button-orange center-block">联系我们</button>
+        </a>
+    </div>
+    <div class="row nomargin partners-list">
+        {% content 'about/partners-body' %}
+    </div>
+    <div class="partners-table">
+        {% component 'editable' file="about/partners-footer" %}
+    </div>
+</div>

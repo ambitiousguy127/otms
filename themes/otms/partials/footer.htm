@@ -1,0 +1,67 @@
+description = "default footer"
+
+[viewBag]
+==
+<?php
+use Ten31\Dictionnary\Models\Settings;
+
+function onStart(){
+    
+    
+    $this['icp'] = Settings::get($this['tld'].'_icp');
+    //debug($this['site_title']);
+}
+?>
+==
+<footer class="">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2">
+                {% component 'editable' file="footer/col1.htm" %}
+            </div>
+            <div class="col-sm-2">
+                {% component 'editable' file="footer/col2.htm" %}
+            </div>
+            <div class="col-sm-2">
+                {% component 'editable' file="footer/col3.htm" %}
+            </div>
+            <div class="col-sm-2">
+                <h2>{{'联系我们'|_}}</h2>
+                <ul>
+                    <li class="phone"><img src="{{"assets/img/phone-i.png"|theme}}" alt="" class="img-responsive">{{phone}}</li>
+                    <li><a href="{{'how-to'|app}}">{{'服务支持'|_}}</a></li>
+                    <li>
+                        <a href="{{login_link}}">
+                            <button class="button button-transparent">{{'登录'|_}}</button>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-offset-1 col-sm-3">
+                <div class="last-col">
+                    <a href="{{demo_link}}"
+                       target="{{demo_target}}">
+                        <button class="button button-orange">{{demo_text}}</button>
+                    </a>
+                    <ul class="list-inline social-qr-list">
+                        <li><a href="javascript:void(0);" data-container="body" data-toggle="popover1"
+                               data-trigger="hover" data-placement="top"><img src="{{'assets/img/Wechat.png'|theme}}"
+                                                                              width="40" alt=""/></a></li>
+                        <li><a href="javascript:void(0);" data-container="body" data-toggle="popover2"
+                               data-trigger="hover" data-placement="top"><img src="{{'assets/img/Weibo.png'|theme}}"
+                                                                              width="40" alt=""/></a></li>
+                        <li><a href="javascript:void(0);" data-container="body" data-toggle="popover3"
+                               data-trigger="hover" data-placement="top"><img src="{{'assets/img/Linkedin.png'|theme}}"
+                                                                              width="40" alt=""/></a></li>
+                    </ul>
+                    <ul class="list-inline langs">
+                        <a href="#" data-request="onSwitchLocale" data-request-data="locale: '{{switch_locale}}'">{{switch_text}}</a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row text-center">
+            <p style="color: white; font-size: 14px; margin-top: 20px;">{{icp}}</p>
+        </div>
+    </div>
+</footer>

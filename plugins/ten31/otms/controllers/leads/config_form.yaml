@@ -1,0 +1,10 @@
+name: Lead
+modelClass: ten31\Otms\Models\Lead
+form: $/ten31/otms/models/lead/fields.yaml
+defaultRedirect: ten31/otms/leads
+create:
+    redirect: 'ten31/otms/leads/update/:id'
+    redirectClose: ten31/otms/lead
+update:
+    redirect: ten31/otms/lead
+    redirectClose: ten31/otms/lead

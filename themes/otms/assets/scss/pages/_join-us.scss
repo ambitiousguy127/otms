@@ -1,0 +1,66 @@
+// ==> join us page styles
+
+.join-section {
+  .nav-tabs {
+    margin-bottom: 20px;
+    border: 0;
+    li {
+      a {
+        outline: none;
+        color: #000;
+        background: #cef2f5;
+        border: 0;
+        border-radius: 0;
+        padding: 10px 20px;
+      }
+      &.active {
+        a {
+          border: 0;
+          background: #52c7dc;
+          color: #000;
+          position: relative;
+          &:before,&:after {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            margin: auto;
+            content: '';
+            width: 0;
+            height: 0;
+          	border-left: 7px solid transparent;
+          	border-right: 7px solid transparent;
+          	border-top: 7px solid #52c7dc;
+          }
+        }
+      }
+    }
+  }.panel-default {
+    border: 0;
+    border-radius: 0;
+    border-bottom: 1px solid #f6923f;
+    h2,h4 {
+      font-size: 18px;
+      color: #52c7dc;
+      margin-top: 0;
+    }
+    li {
+      font-size: 18px;
+    }
+    .panel-heading {
+      border-radius: 0;
+      background: #fcf7f7;
+      padding: 20px 15px;
+      a {
+        outline: none;
+        &:hover,&:focus {
+          text-decoration: none;
+        }
+      }
+    }
+    .panel-body {
+      background: #fcf7f7;
+      border-color: #f6923f !important;
+    }
+  }
+}

@@ -1,0 +1,105 @@
+title = "预约演示"
+url = "/request-demo"
+layout = "default-submenu"
+is_hidden = 0
+meta_title = "预约演示"
+
+==
+<?php
+use Ten31\Dictionnary\Models\Settings;
+use Ten31\Otms\Controllers\FormHandler;
+use Ten31\Otms\Models\Functions;
+
+function onStart(){
+    $this['herobg'] = Settings::get('hero-bg-demo');
+    $this['link'] = Settings::get('link-demo-request');
+    
+    if(Session::get('user_visited_pages')) {
+		//$this['user_visited_pages'] = Session::get('user_visited_pages'); //json_encode(Session::get('user_visited_pages'));
+		
+		$user_visited_pages = Session::get('user_visited_pages');
+		//$user_visited_pages = array_reverse ($user_visited_pages);
+		foreach($user_visited_pages as $key => $p){
+			$this['user_visited_pages'] .= str_replace("\\","",$p);
+			
+			if(count($user_visited_pages) - 1 != $key) $this['user_visited_pages'] .= " ->  ";
+		}
+	}else{
+		$this['user_visited_pages'] = "no user visited pages";
+	}
+	
+	if(Session::get('referer')) {
+		$this['user_referer'] = Session::get('referer');
+	}else{
+		$this['user_referer'] = "direct website access";
+	}
+	
+	$this['user_session_id'] = Session::get('_token');
+
+}
+
+function onProcess()
+{
+   //print_r(post());
+    $form_handler = new FormHandler;
+    $this["result"] = $form_handler->sendXiaoshouyiLead(post(), 'demo');
+
+	if(Functions::getCurrentLanguage() == "en"){
+    if($this["result"]['status']=='success'){
+        $to = post('email');
+        $headers  = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= "Content-Type: text/html; charset=UTF-8";
+        Mail::sendTo($to, 'backend::mail.register_en' );
+        }
+
+}else{
+
+    if($this["result"]['status']=='success'){
+        $to = post('email');
+        $headers  = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= "Content-Type: text/html; charset=UTF-8";
+        Mail::sendTo($to, 'backend::mail.register' );
+        }
+
+}
+
+}
+
+
+
+?>
+
+
+==
+<script type="text/javascript">
+  function cleanFieldAfterSubmit(){
+    if($('div').hasClass('error-msg')){
+      console.log('Please Check your errors');
+    }else{
+        $('.form-control').val('');
+        $('.css-checkbox').attr('checked', false);
+      }
+    }
+
+	$('.error-msg').on("click", function (event){
+		event.preventDefault();
+		$('.error-msg').hide();
+});
+
+</script>
+
+
+{% put submenubottom %}
+    <div id="result">{% partial "common/msgarea-ajax" %}</div>
+{% endput %}
+
+
+<section class="section contact-section request-demo" style="background: url({{herobg|media}}) 100% 0 no-repeat; background-size: cover;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-6 col-md-6">
+                {% partial "forms/demo" %}
+            </div>
+        </div>
+    </div>
+</section>

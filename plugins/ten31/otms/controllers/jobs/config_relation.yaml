@@ -1,0 +1,11 @@
+locations:
+    label: Location
+    view:
+        form: $/ten31/otms/models/location/fields.yaml
+        list: $/ten31/otms/models/location/columns.yaml
+        toolbarButtons: create|link|unlink
+    manage:
+        showSearch: true
+        recordsPerPage: 10
+        list: $/ten31/otms/models/location/columns.yaml
+        form: $/ten31/otms/models/location/fields.yaml

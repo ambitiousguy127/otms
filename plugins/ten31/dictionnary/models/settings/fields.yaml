@@ -1,0 +1,306 @@
+Tabs:
+    fields:
+        hero-bg-benefits-shippers:
+            span: auto
+            tab: Hero banners
+            label: benefits-shippers background
+            type: mediafinder
+        link-benefits-shippers:
+            span: auto
+            tab: Hero banners
+            label: Benefit Shippers Background Link
+            type: text
+        hero-bg-benefits-logistics:
+            span: auto
+            tab: Hero banners
+            label: benefits-logistics background
+            type: mediafinder
+        link-benefits-logistics:
+            span: auto
+            tab: Hero banners
+            label: Benefit Logistics Background Link
+            type: text
+        hero-bg-whycloud:
+            span: auto
+            tab: Hero banners
+            label: whycloud background
+            type: mediafinder
+        link-whycloud:
+            span: auto
+            tab: Hero banners
+            label: Why Cloud Background Link
+            type: text
+        hero-bg-products:
+            span: auto
+            tab: Hero banners
+            label: products background
+            type: mediafinder
+        link-products:
+            span: auto
+            tab: Hero banners
+            label: Products Background Link
+            type: text
+        hero-bg-howto:
+            span: auto
+            tab: Hero banners
+            label: howto background
+            type: mediafinder
+        link-howto:
+             span: auto
+             tab: Hero banners
+             label: How To Background Link
+             type: text
+        hero-bg-casestudies:
+            span: auto
+            tab: Hero banners
+            label: case-studies background
+            type: mediafinder
+        link-casestudies:
+            span: auto
+            tab: Hero banners
+            label: Case Studies Background Link
+            type: text
+        hero-rotate-main:
+            span: auto
+            tab: Home Page Hero
+            label: Home Carousel Image One
+            type: mediafinder
+        link-hero-rotate-main:
+            span: auto
+            tab: Home Page Hero
+            label: Background Link Home Carousel Image One
+            type: text
+        hero-rotate-secondary:
+            span: auto
+            tab: Home Page Hero
+            label: Home Carousel Image Two
+            type: mediafinder
+        link-hero-rotate-secondary:
+             span: auto
+             tab: Home Page Hero
+             label: Background Link Home Carousel Image Two
+             type: text
+        hero-rotate-third:
+            span: auto
+            tab: Home Page Hero
+            label: Home Carousel Image Three
+            type: mediafinder
+        link-hero-rotate-third:
+            span: auto
+            tab: Home Page Hero
+            label: Background Link Home Carousel Image Three
+            type: text
+        hero-rotate-fourth:
+            span: auto
+            tab: Home Page Hero
+            label: Home Carousel Image Fourth
+            type: mediafinder
+        link-hero-rotate-fourth:
+            span: auto
+            tab: Home Page Hero
+            label: Background Link Home Carousel Image Four
+            type: text
+        demo_link:
+            span: auto
+            tab: Demo link
+            label: Demo link URL
+            type: text
+        demo_target:
+            span: auto
+            tab: Demo link
+            label: Demo link target
+            type: dropdown
+            options:
+                _blank: New tab / window
+                _self: Same frame
+        demo_text_zh:
+            span: auto
+            tab: Demo link
+            label: Demo button text (Chinese)
+            type: text
+        demo_text_en:
+            span: auto
+            tab: Demo link
+            label: Demo button text (English)
+            type: text
+        responsive_link:
+            span: auto
+            tab: Demo link
+            label: Responsive Testing Link URL
+            type: Text
+        responsive_text_zh:
+            span: auto
+            tab: Demo link
+            label: Responsive Testing button text (Chinese)
+            type: text
+        responsive_text_en:
+            span: auto
+            tab: Demo link
+            label: Responsive Testing button text (English)
+            type: text
+        highlighted_blog:
+            span: auto
+            tab: Highlighted content
+            label: Highlighted blog post (blog index)
+            type: dropdown
+            default: null
+        highlighted_news:
+            span: auto
+            tab: Highlighted content
+            label: Highlighted news (news index)
+            type: dropdown
+            default: otms/news
+        home_highlighted_news:
+            span: auto
+            tab: Highlighted content
+            label: Highlighted news (Homepage)
+            type: dropdown
+            default: otms/news
+        home_highlighted_post:
+            span: auto
+            tab: Highlighted content
+            label: Highlighted blog post (Homepage)
+            type: dropdown
+            default: otms/post
+        home_highlighted_download:
+            span: auto
+            tab: Highlighted content
+            label: Highlighted download (Homepage)
+            type: dropdown
+            default: otms/news
+        com_title_zh:
+            span: auto
+            tab: Sitewide Info
+            label: Site title
+            type: text
+        com_title_en:
+            span: auto
+            tab: Sitewide Info
+            label: Site title (ZH)
+            type: text
+        com_icp:
+            span: auto
+            tab: Sitewide Info
+            label: Footer ICP info (com)
+            type: textarea
+        cn_icp:
+            span: auto
+            tab: Sitewide Info
+            label: Footer ICP info (cn)
+            type: textarea
+        hero-bg-demo:
+            span: auto
+            tab: Hero banners
+            label: demo request background
+            type: mediafinder
+        link-demo-request:
+            span: auto
+            tab: Hero banners
+            label: Demo Request Background Link
+            type: text
+        com-logo:
+            span: auto
+            tab: Sitewide Info
+            label: logo for the .com domain
+            type: mediafinder
+        cn-logo:
+            span: auto
+            tab: Sitewide Info
+            label: logo for the .cn domain
+            type: mediafinder
+        com-phone:
+            span: auto
+            tab: Sitewide Info
+            label: direct call phone number
+            type: number
+        login_link:
+            span: auto
+            tab: Sitewide Info
+            label: login link
+            type: text
+        redirect_time:
+            span: auto
+            tab: Sitewide Info
+            label: Redirect 404 (in miliseconds=> 1000 miliseconds = 1 second )
+            type: number
+        redirect_page:
+            span: auto
+            tab: Sitewide Info
+            label: Redirect 404 Location
+            type: text
+        admin_email:
+            span: auto
+            tab: Sitewide Info
+            label: oTMS Admin Email
+            type: text
+        home_highlighted_casestudy_left:
+            span: auto
+            tab: Highlighted content
+            label: Highlighted Case Studies Left (Homepage)
+            type: dropdown
+        home_highlighted_casestudy_middle:
+            span: auto
+            tab: Highlighted content
+            label: Highlighted Case Studies Middle (Homepage)
+            type: dropdown
+        home_highlighted_casestudy_right:
+            span: auto
+            tab: Highlighted content
+            label: Highlighted Case Studies Right (Homepage)
+            type: dropdown
+
+        home_highlighted_casestudy_left_en:
+            span: auto
+            tab: Highlighted content (En)
+            label: Highlighted Case Studies Left En (Homepage)
+            type: dropdown
+        home_highlighted_casestudy_middle_en:
+            span: auto
+            tab: Highlighted content (En)
+            label: Highlighted Case Studies Middle En (Homepage)
+            type: dropdown
+        home_highlighted_casestudy_right_en:
+            span: auto
+            tab: Highlighted content (En)
+            label: Highlighted Case Studies Right En (Homepage)
+            type: dropdown
+        highlighted_blog_en:
+            span: auto
+            tab: Highlighted content (En)
+            label: Highlighted blog post En (blog index)
+            type: dropdown
+            default: null
+        highlighted_news_en:
+            span: auto
+            tab: Highlighted content (En)
+            label: Highlighted news En (news index)
+            type: dropdown
+            default: otms/news
+        home_highlighted_news_en:
+            span: auto
+            tab: Highlighted content (En)
+            label: Highlighted news En (Homepage)
+            type: dropdown
+            default: otms/news
+        home_highlighted_post_en:
+            span: auto
+            tab: Highlighted content (En)
+            label: Highlighted blog post En (Homepage)
+            type: dropdown
+            default: otms/post
+        home_highlighted_download_en:
+            span: auto
+            tab: Highlighted content (En)
+            label: Highlighted download En (Homepage)
+            type: dropdown
+            default: otms/news
+        xsy_ownerid:
+            span: auto
+            tab: XiaoShouYi Information
+            label: XiaoShouYi OwnerID
+            type: text
+        xsy_dimdepart:
+            span: auto
+            tab: XiaoShouYi Information
+            label: XiaoShouYi DimDepart
+            type: text

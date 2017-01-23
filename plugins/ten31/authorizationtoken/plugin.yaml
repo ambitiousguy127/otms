@@ -1,0 +1,10 @@
+plugin:
+    name: 'ten31.authorizationtoken::lang.plugin.name'
+    description: 'Used to receive a new authorization token from XiaoShouYi'
+    author: ten31
+    icon: oc-icon-globe
+    homepage: ''
+permissions:
+    ten31.authorizationtoken.access:
+        tab: 'oTMS Content Edition'
+        label: 'Managing the Authorization Token'

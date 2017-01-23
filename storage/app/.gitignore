@@ -1,0 +1,5 @@
+!/media/
+!/uploads/
+!.gitignore
+!.redirects.csv
+**/thumb_*.*

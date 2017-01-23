@@ -1,0 +1,4 @@
+title: Blog
+modelClass: ten31\Otms\Models\Post
+toolbar:
+    buttons: reorder_toolbar

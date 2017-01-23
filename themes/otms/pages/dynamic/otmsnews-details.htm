@@ -1,0 +1,56 @@
+title = "动态文章"
+url = "/otmsnews/:sulg"
+layout = "page-nohero-2col"
+is_hidden = 0
+==
+{% put title%}{{post.title}}{% endput %}
+{% put metaTitle%}{{post.title}}{% endput %}
+{% put metaDesc%}{{post.metadescription}}{% endput %}
+
+{% put bodyclass%}blog-pg{% endput %}
+
+{% put colrightcontent %}
+    {% partial "col-right/library" %}
+{% endput %}
+
+{% put colleftcontent %}
+    <div class="blog-content">
+        <div class="post-heading">
+            <h2>{{post.title}}</h2>
+            <h4>{{post.date}}</h4>
+        </div>
+        <img src="{{post.getPostIllustration}}" class="img-responsive" data-bd-imgshare-binded="1">
+        <div class="blog-wrapper">
+            {{post.body|raw}}
+            <div class="bdsharebuttonbox">
+                <a href="#" class="bds_more" data-cmd="more"></a>
+                <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+            </div>
+            <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":["qzone","tsina","weixin","tqq","tieba","sqq","ty","fbook","twi","linkedin","evernotecn","copy","print"],"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+            <a href="{{'news'|app}}"><span class="glyphicon glyphicon-arrow-left"></span> 返回</a>
+        </div>
+    </div>
+<div class="related-articles blog-box">
+    <h2>{{相关文章|_}}</h2>
+    <ul class="media-list">
+        {% for lNews in latestNews %}
+        <li class="media">
+            <div class="media-left">
+                <a href="{{ 'dynamic/news-details'|page({ slug: lNews.slug }) }}">
+                    <img class="media-object" src="{{lNews.getThumbnail}}" alt="{{ lNews.title }}" style="max-width: 100px">
+                </a>
+            </div>
+            <div class="media-body">
+                <a href="{{ 'dynamic/news-details'|page({ slug: lNews.slug }) }}">
+                    <h3 class="media-heading">{{ lNews.title }}</h3>
+                </a>
+                <p>{{str_limit(html_strip(lNews.body), 100)}}</p>
+                <h4>{{ lNews.date }}</h4>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endput %}

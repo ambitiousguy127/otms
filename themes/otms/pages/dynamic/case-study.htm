@@ -1,0 +1,101 @@
+title = "成功案例文章"
+url = "/case-studies/:slug"
+layout = "page-norotate-2col"
+is_hidden = 0
+
+[staticMenu]
+code = "submenu-benefits"
+==
+<?php
+use Ten31\Otms\Models\CaseStudy;
+use Ten31\Dictionnary\Models\Settings;
+use Ten31\Otms\Controllers\FormHandler;
+
+function onStart(){
+    
+    $slug = $this->param('slug');
+    $post = CaseStudy::where("slug",$slug)->first();
+    if (!$post){
+        return $this->controller->run('404');
+    }
+    $this['post'] = $post;
+    
+    $this['herobg'] = Settings::get('hero-bg-casestudies');
+}
+
+function onProcess()
+{
+    //print_r(post());
+    $form_handler = new FormHandler;
+    $this["result"] = $form_handler->sendXiaoshouyiLead(post(), 'CaseStudy');
+
+}
+?>
+==
+{% put title%}{{post.title}}{% endput %}
+{% put metaTitle%}{{post.title}}{% endput %}
+{% put metaDesc%}{{post.metadescription}}{% endput %}
+
+{% put top %}
+    <div id="result">{% partial "common/msgarea-ajax" %}</div>
+{% endput %}
+
+{% put herobg %}
+    {{ herobg | media }}
+{% endput %}
+
+{% put sectionclass %}contact-section{% endput %}
+
+{% put submenuelements %}
+    {% for item in staticMenu.menuItems %}
+        <li><a href="{{ item.url |app }}">{{ item.title|_ }}</a></li>
+    {% endfor %}
+{% endput %}
+
+{% put colrightcontent %}
+    {% if post.attachement is not null %}
+        {% partial "col-right/download-attachment" attachment=post.attachement.getPath %}
+        {% partial "forms/download" %}
+{% else%}
+{% put colrightcontent %}
+{% partial "col-right/panel-list" %}
+{% partial "col-right/library" %}
+{% endput %}
+    {% endif %}
+
+{% endput %}
+
+{% put colleftcontent %}
+    <div class="case-content">
+        <div class="post-heading"> 
+            <h2>{{post.title}}</h2>  
+        </div>
+        <img src="{{post.getPostIllustration}}" alt="post.title" class="img-responsive">
+        <div class="blog-wrapper">
+            {{post.body|raw}}
+        </div>
+        <div class="testimonial-box">
+            <div class="testimonial-text"> <img src="{{'assets/img/quote-left-i.png'|theme}}" class="quote left" alt="quote">
+                <p>{{post.quotation}}</p> <img src="{{'assets/img/quote-right-i.png'|theme}}" class="quote right" alt="quote"> </div>
+            <div class="person-box"> <img src="{{'assets/img/triangle-wh.png'|theme}}" class="triangle">
+                <div class="person-box-wrapper"> <img src="{{post.getQuoteIllustration}}" width="70" alt="face" class="img-responsive">
+                    <div class="person-text">
+                        <p><span>{{post.quotation_source}}</span></p>
+                        <h4>{{post.quotation_position}}</h4> </div>
+                </div>
+            </div>
+        </div>
+            <div class="bdsharebuttonbox">
+                <a href="#" class="bds_more" data-cmd="more"></a>
+                <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+            </div>
+            <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":["qzone","tsina","weixin","tqq","tieba","sqq","ty","fbook","twi","linkedin","evernotecn","copy","print"],"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+        <a href="{{'case-studies'|app}}"><span class="glyphicon glyphicon-arrow-left"></span> 返回</a>
+    </div>
+{% endput %}
+
+{% put bottom %}
+    {% partial "section-requestdemo" %}
+{% endput %}

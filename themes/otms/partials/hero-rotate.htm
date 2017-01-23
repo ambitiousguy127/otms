@@ -1,0 +1,49 @@
+description = "Hero banner with rotating background"
+==
+<?php
+use Ten31\Dictionnary\Models\Settings;
+
+function onStart(){
+
+    $this['imgOne'] = Settings::get('hero-rotate-main');
+    $this['imgTwo'] = Settings::get('hero-rotate-secondary');
+    $this['imgThree'] = Settings::get('hero-rotate-third');
+    $this['imgFour'] = Settings::get('hero-rotate-fourth');
+
+    $this['link_one'] = Settings::get('link-hero-rotate-main');
+    $this['link_two'] = Settings::get('link-hero-rotate-secondary');
+    $this['link_three'] = Settings::get('link-hero-rotate-third');
+    $this['link_four'] = Settings::get('link-hero-rotate-fourth');
+}
+
+?>
+==
+<div class="main-banner home">
+    <div id="carousel-example-generic" data-interval="4000" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+            {% if imgOne != null %}
+            <div class="item" onclick="window.location.href='{{link_one}}'"> <img src="{{imgOne|media}}" class="img-responsive" alt="."> </div>
+            {%endif%}
+            {% if imgTwo != null %}
+            <div class="item" onclick="window.location.href='{{link_two}}'"> <img src="{{imgTwo|media}}" class="img-responsive" alt="."> </div>
+            {%endif%}
+            {% if imgThree != null %}
+            <div class="item active" onclick="window.location.href='{{link_three}}'"> <img src="{{imgThree|media}}" class="img-responsive" alt="."> </div>
+            {%endif%}
+            {% if imgFour != null %}
+            <div class="item" onclick="window.location.href='{{link_four}}'"> <img src="{{imgFour|media}}" class="img-responsive" alt="."> </div>
+            {%endif%}
+        </div>
+    </div>
+    <div class="container">
+        <div class="banner-content center-block text-center">
+            {% component 'editable' file='hero/text_homepage' %}
+            <a href="#advantage-section">
+                <button class="button button-transparent">{{'了解更多'|_}}</button>
+            </a>
+            <a href="{{demo_link}}" target="_blank">
+                <button class="button button-orange">{{demo_text}}</button>
+            </a>
+        </div>
+    </div>
+</div>

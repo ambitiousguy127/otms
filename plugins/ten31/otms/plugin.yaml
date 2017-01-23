@@ -1,0 +1,109 @@
+plugin:
+    name: 'ten31.otms::lang.plugin.name'
+    description: 'ten31.otms::lang.plugin.description'
+    author: ten31
+    icon: oc-icon-bank
+    homepage: ''
+permissions:
+    ten31.otms.access:
+        tab: 'oTMS Content Edition'
+        label: 'Edit all OTMS content (except jobs)'
+    ten31.otms.access_jobs:
+        tab: 'oTMS Content Edition'
+        label: 'Edit OTMS jobs'
+navigation:
+    blog-item:
+        label: 'ten31.otms::lang.name.blogname'
+        url: ten31/otms/blog
+        icon: icon-newspaper-o
+        permissions:
+            '-': ten31.otms.access
+        sideMenu:
+            posts:
+                label: 'Blog Posts'
+                url: ten31/otms/blog
+                icon: icon-newspaper-o
+                permissions:
+                    '-': ten31.otms.access
+            authors:
+                label: 'Blog Authors'
+                url: ten31/otms/author
+                icon: icon-user
+                permissions:
+                    '-': ten31.otms.access
+    news:
+        label: 'ten31.otms::lang.name.newsname'
+        url: ten31/otms/news
+        icon: icon-newspaper-o
+        permissions:
+            '-': ten31.otms.access
+        sideMenu:
+            posts:
+                label: 'News Posts'
+                url: ten31/otms/news
+                icon: icon-newspaper-o
+            authors:
+                label: 'News Authors'
+                url: ten31/otms/author
+                icon: icon-user
+                permissions:
+                    '-': ten31.otms.access
+    Jobs:
+        label: 'ten31.otms::lang.name.jobname'
+        url: /ten31/otms/jobs
+        icon: icon-briefcase
+        permissions:
+            '-': ten31.otms.access_jobs
+        sideMenu:
+            jobs:
+                label: 'Jobs Listing'
+                url: /ten31/otms/jobs
+                icon: icon-briefcase
+            locations:
+                label: 'Jobs Locations'
+                url: /ten31/otms/locations
+                icon: icon-flag
+                permissions:
+                    '-': ten31.otms.access_jobs
+    Cases:
+        label: 'ten31.otms::lang.name.casename'
+        url: ten31/otms/casesstudy
+        icon: icon-eye
+        permissions:
+            '-': ten31.otms.access
+        sideMenu:
+            case-studies-list:
+                label: 'Case Studies List'
+                url: ten31/otms/casesstudy
+                icon: icon-eye
+            client-type:
+                label: 'Clients Type'
+                url: ten31/otms/clienttypes
+                icon: icon-user
+    Downloads:
+        label: 'ten31.otms::lang.name.downloadname'
+        url: /ten31/otms/downloads
+        icon: icon-cloud-download
+        permissions:
+            '-': ten31.otms.access
+    leads:
+        label: 'ten31.otms::lang.name.leadname'
+        url: /ten31/otms/leads
+        icon: icon-group
+        permissions:
+            '-': ten31.otms.access
+        order: '6'
+        sideMenu:
+            authorizationtokens:
+                label: 'Authorization Token'
+                url: ten31/authorizationtoken/authorizationtokens/update/1
+                icon: icon-paper-plane
+                permissions:
+                    - ten31.otms.access
+    openapi:
+        label: 'ten31.otms::lang.name.apiname'
+        url: ten31/otms/openapiforms
+        icon: icon-exchange
+        permissions:
+            '-': ten31.otms.access
+        order: '7'

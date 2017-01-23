@@ -1,0 +1,197 @@
+// ==> benefits snippers page styles
+
+.main-banner.benefits-shippers {
+	background: url("../img/benefits-shippers-banner.jpg")no-repeat center;
+	background-size: cover;
+	&.products {
+		background: url("../img/products-top-banner.jpg")no-repeat center;
+		background-size: 100%;
+	}
+}
+.main-banner.benefits-logistics {
+	background: url("../img/benefits-logistics-banner.jpg")no-repeat center;
+	background-size: cover;
+}
+.benefits-content-section {
+	.content-text {
+
+		ul {
+			padding-left: 15px;
+			li {
+				color: $black-text-color;
+				font-size: 18px;
+				margin-bottom: 5px;
+			}
+		}
+	}
+	.cloud-providers {
+		.cloud-box {
+			display: table;
+			.text,.image {
+				display: table-cell;
+				vertical-align: middle;
+				p {
+					margin-left: 20px;
+				}
+			}
+		}
+	}
+}
+
+
+.blog-pg {
+	.white {
+		.panel-list {
+			background: #ffffff;
+			margin-bottom: 20px;
+			border-bottom: 2px solid #e7e7e7;
+			border-radius: 4px;
+			&h2{
+				color: $black-text-color;
+				margin-bottom: 0;
+				margin-top: 0;
+				border-bottom: 1px solid $orange-main-color;
+				padding: 20px;
+				background: #ffffff;
+			}
+			li {
+				border: 0;
+				border-radius: 0;
+				border-bottom: 1px solid $orange-main-color;
+				background: transparent;
+				box-shadow: none;
+				margin-top: 0;
+				list-style: none;
+				a {
+					display: block;
+					color: #2f3030;
+					font-size: 18px;
+					padding: 4px 0;
+					background: #ffffff;
+				}
+			}
+		}
+	}
+}
+
+
+.sidebar {
+	.panel-list {
+		background: #fcf7f7;
+		margin-bottom: 20px;
+		border-bottom: 2px solid #e7e7e7;
+		border-radius: 4px;
+		& > h2 {
+			color: $black-text-color;
+			margin-bottom: 0;
+			margin-top: 0;
+			border-bottom: 1px solid $orange-main-color;
+			padding: 20px;
+		}
+		ul {
+			padding-left: 0;
+			margin-bottom: 0;
+			background: transparent;
+
+		}
+		li {
+			border: 0;
+			border-radius: 0;
+			border-bottom: 1px solid $orange-main-color;
+			background: transparent;
+			box-shadow: none;
+			margin-top: 0;
+			list-style: none;
+			a {
+				display: block;
+				color: #2f3030;
+				font-size: 18px;
+				padding: 4px 0;
+				background: transparent;
+				span {
+					color: $orange-main-color;
+					font-size: 30px;
+					vertical-align: middle;
+					margin-left: 20px;
+					margin-right: 20px;
+				}
+				&:focus, &:hover {
+					text-decoration: none;
+					color: #e26316;
+				}
+			}
+			.panel-body {
+				border-top: 1px solid $orange-main-color;
+				border-bottom: 0;
+				background: transparent;
+			}
+			&:last-child {
+				border-bottom: 0;
+			}
+		}
+		.panel:last-child {
+			border-bottom: 0;
+		}
+	}
+	.library {
+		background: #fcf7f7;
+		padding: 20px;
+		border-bottom: 2px solid #e7e7e7;
+		border-radius: 4px;
+		& > h2 {
+			margin: 0;
+			margin-bottom: 15px;
+			color: $black-text-color;
+		}
+		.media-body {
+			h4 {
+				margin-bottom: 0;
+			}
+		}
+		h4 {
+			margin-bottom: 15px;
+			color: $black-text-color;
+		}
+		p {
+			color: $black-text-color;
+		}
+	}
+
+	.sign-up-block {
+		background: #fcf7f7;
+		border-bottom: 2px solid #e7e7e7;
+		border-radius: 4px;
+		padding: {
+			top: 20px;
+			right: 20px;
+			left: 20px;
+			bottom: 20px;
+		}
+		margin-top: 20px;
+		img {
+			display: inline-block;
+		}
+		.sign-text {
+			display: inline-block;
+			vertical-align: top;
+			margin-left: 35px;
+		}
+		h2 {
+			color: $black-text-color;
+			margin: {
+				top: 10px;
+				bottom: 20px;
+			}
+		}
+	}
+}
+
+
+.find-our-products-section {
+	background: #52c7dc;
+	h2 {
+		color: #fff;
+		margin-top: 85px;
+		margin-bottom: 20px;
+	}
+}

@@ -1,0 +1,11 @@
+//
+// Custom Bootstrap changes
+// --------------------------------------------------
+
+.desk {
+  @extend .visible-lg-block;
+}
+
+.mob {
+  @extend .hidden-lg;
+}

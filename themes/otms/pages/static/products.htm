@@ -1,0 +1,32 @@
+title = "运输协同平台"
+url = "/products"
+layout = "page-norotate-1col"
+is_hidden = 0
+meta_title = "产品方案"
+meta_description = "oTMS致力于提高中国企业供应链中的运输流通效率、通过创新降低物流成本，帮助中国企业实现从“粗放增长”向“精细化经营”的转型。"
+
+[staticMenu]
+code = "submenu-products"
+==
+<?php
+use Ten31\Dictionnary\Models\Settings;
+function onStart(){
+    $this['herobg'] = Settings::get('hero-bg-products');
+        $this['link'] = Settings::get('link-products');
+
+}
+?>
+==
+{% put herobg %}
+    {{ herobg | media }}
+{% endput %}
+
+{% put submenuelements %}
+    {% for item in staticMenu.menuItems %}
+        <li><a href="{{ item.url |app }}">{{ item.title|_ }}</a></li>
+    {% endfor %}
+{% endput %}
+
+{% partial "products/content" %}
+
+{% partial "section-requestdemo" %}

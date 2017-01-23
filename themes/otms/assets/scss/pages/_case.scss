@@ -1,0 +1,67 @@
+// ==> case study styles
+
+.case-content {
+  .post-heading {
+    padding: 0;
+  }
+  .testimonial-box {
+		margin-top: 60px;
+    margin-bottom: 20px;
+		.testimonial-text {
+			position: relative;
+			margin-bottom: 20px;
+			p {
+				padding: 0 60px;
+			}
+			@include font-size(25px);
+			.quote {
+				position: absolute;
+				top: 10%;
+			}
+			.quote.left {
+				left: 2%;
+			}
+			.quote.right {
+				right: 3%;
+			}
+		}
+		.person-box {
+			display: table;
+			width: 100%;
+			background-position: 0 -5px;
+			border-top: 1px solid $blue-main-color;
+			padding-top: 20px;
+			position: relative;
+      .person-box-wrapper {
+        display: table;
+        margin: 0 auto;
+      }
+			.triangle {
+				position: absolute;
+				top: -12px;
+				left: 0;
+        right: 0;
+        margin: auto;
+				background: #cef2f5;
+			}
+			img.img-responsive {
+				border-radius: 100%;
+				border: 1px solid #adb3b6;
+				display: table-cell;
+			}
+			.person-text {
+				display: table-cell;
+				vertical-align: top;
+				padding-left: 10px;
+				p {
+					margin-bottom: 0;
+					color: #2f3030;
+					color: $blue-main-color;
+				}
+				span {
+					@include font-size(26px);
+				}
+			}
+		}
+	}
+}

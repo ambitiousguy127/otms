@@ -1,0 +1,31 @@
+fields:
+    title:
+        label: Title
+        oc.commentPosition: ''
+        span: full
+        type: text
+        required: true
+    body:
+        label: Body
+        size: ''
+        oc.commentPosition: ''
+        span: full
+        type: richeditor
+        required: true
+    active:
+        label: 'Open Position'
+        span: full
+        type: switch
+        default : true
+    date:
+        label: Date
+        oc.commentPosition: ''
+        mode: date
+        span: full
+        type: datepicker
+        required: true
+    locations_id:
+        span: full
+        path: field_locations
+        type: partial
+        required: true

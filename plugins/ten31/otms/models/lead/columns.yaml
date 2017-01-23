@@ -1,0 +1,49 @@
+columns:
+    source:
+        label: 'ten31.otms::lang.fields.leadsource'
+        type: text
+        searchable: true
+    name:
+        label: 'ten31.otms::lang.fields.name'
+        type: text
+        searchable: true
+        sortable: true
+    company_name:
+        label: 'ten31.otms::lang.fields.company_name'
+        type: text
+        searchable: true
+        sortable: true
+    mobile:
+        label: 'ten31.otms::lang.fields.mobile'
+        type: text
+        searchable: true
+        sortable: true
+    email:
+        label: 'ten31.otms::lang.fields.email'
+        type: text
+        searchable: true
+    xsy_response:
+        label: 'ten31.otms::lang.fields.xsy_response'
+        type: text
+        searchable: true
+    created_at:
+        label: 'ten31.otms::lang.fields.created_at'
+        type: datetime
+        searchable: true
+        sortable: true
+    user_referer:
+        label: user_referer
+        type: text
+        invisible: true
+    user_visited_pages:
+        label: user_visited_pages
+        type: text
+        invisible: true
+    user_session_id:
+        label: user_session_id
+        type: text
+        invisible: true
+    updated_at:
+        label: updated_at
+        type: date
+        invisible: true

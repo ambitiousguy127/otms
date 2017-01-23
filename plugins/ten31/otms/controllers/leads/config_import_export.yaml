@@ -1,0 +1,9 @@
+# ===================================
+#  Import/Export Behavior Config
+# ===================================
+
+export:
+    title: 'ten31.otms::lang.fields.leads_export'
+    modelClass: ten31\Otms\Models\LeadsExport
+    list: $/ten31/otms/models/lead/columns.yaml
+

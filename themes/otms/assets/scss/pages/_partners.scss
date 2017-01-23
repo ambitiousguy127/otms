@@ -1,0 +1,60 @@
+// ==> partners page styles
+
+.partners-content {
+	& > h2:first-child {
+		margin-top: 0;
+	}
+	.partners-list {
+		padding: 0 0px;
+		padding-bottom: 40px;
+		border-bottom: 2px solid #cef2f5;
+		&.leaders {
+			border-bottom: 0;
+			.media-list {
+				.media-left {
+					& > a {
+						border: 0;
+						img {
+							max-width: none;
+							border-radius: 100%;
+						}
+					}
+				}
+				.media-body {
+					vertical-align: middle;
+				}
+			}
+		}
+		.media-list {
+			margin-top: 40px;
+			.media {
+				margin: 20px 0;
+			}
+			.media-left {
+				& > a {
+					display: table-cell;
+					vertical-align: middle;
+					padding: {
+						top: 0px;
+						bottom: 40px;
+						right: 20px;
+						left: 0px;
+					}
+					& > img {
+						max-width: 165px;
+					}
+				}
+			}
+			.media-heading {
+				color: #52c7dc;
+			}
+		}
+	}
+
+	.partners-table {
+		margin-top: 40px;
+		table {
+			width: 100%;
+		}
+	}
+}

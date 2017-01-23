@@ -1,0 +1,27 @@
+.message {
+  font-size: 18px;
+  padding: 10px 0px;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.close-msg {
+  position: absolute;
+  right: 20px;
+  top: 30%;
+}
+
+.success-msg {
+  background: #28a324;
+}
+
+.alert-msg {
+  background: #f2b600;
+}
+
+.error-msg {
+  background: #c10b0f;
+}

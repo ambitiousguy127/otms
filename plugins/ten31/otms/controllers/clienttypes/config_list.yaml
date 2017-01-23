@@ -1,0 +1,11 @@
+title: ClientTypes
+modelClass: ten31\Otms\Models\ClientType
+list: $/ten31/otms/models/clienttype/columns.yaml
+recordUrl: 'ten31/otms/clienttypes/update/:id'
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'

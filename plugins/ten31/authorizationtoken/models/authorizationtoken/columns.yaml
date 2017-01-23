@@ -1,0 +1,4 @@
+columns:
+    created_at:
+        label: 'Created At'
+        type: datetime

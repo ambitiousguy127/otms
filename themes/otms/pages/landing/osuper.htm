@@ -1,0 +1,38 @@
+title = "由oSuper开启城市物流新商圈，速食时代，调拨也要快快快"
+url = "/osuper/landingpage"
+layout = "landingpages"
+is_hidden = 0
+==
+<?php
+use Ten31\Otms\Controllers\PrizeFormHandler;
+use Ten31\Otms\Models\Functions;
+use Ten31\Dictionnary\Models\Settings;
+public function onContactProcess()
+{
+	$form_handler = new PrizeFormHandler;
+    $this["result"] = $form_handler->sendXiaoshouyiLead(post(), 'landing-osuper');
+	if(Functions::getCurrentLanguage() == "en"){
+    if($this["result"]['status']=='success'){
+        $to = post('email');
+        $headers  = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= "Content-Type: text/html; charset=UTF-8";
+        Mail::sendTo($to, 'backend::mail.landing-rfq' );
+    }
+    }else{
+        if($this["result"]['status']=='success'){
+            $to = post('email');
+            $headers  = 'MIME-Version: 1.0' . "\r\n";
+            $headers .= "Content-Type: text/html; charset=UTF-8";
+            Mail::sendTo($to, 'backend::mail.landing-rfq' );
+        }
+    }
+}
+?>
+==
+{% partial "landing/osuper-header" %}
+{% partial "landing/osuper-features" %}
+{% partial "landing/osuper-brand" %}
+{% partial "landing/osuper-benefits" %}
+<div id="result"></div>
+
+{% partial "landing/contact" title = "预约演示" %}

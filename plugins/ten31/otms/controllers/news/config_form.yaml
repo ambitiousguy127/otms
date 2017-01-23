@@ -1,0 +1,11 @@
+name: News
+modelClass: ten31\Otms\Models\News
+form: $/ten31/otms/models/news/fields.yaml
+defaultRedirect: ten31/otms/news
+create:
+    redirect: 'ten31/otms/news/update/:id'
+    redirectClose: ten31/otms/news
+update:
+    redirect: ten31/otms/news
+    redirectClose: ten31/otms/news
+preview: {  }

@@ -1,0 +1,9 @@
+# ===================================
+# Filter Scope Definitions
+# ===================================
+
+scopes:
+    active:
+        label: Hide unactive
+        type: checkbox
+        conditions: active = 1

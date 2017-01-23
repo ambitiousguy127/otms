@@ -1,0 +1,37 @@
+columns:
+    name:
+        label: 'ten31.otms::lang.fields.name'
+        type: text
+        searchable: true
+        sortable: true
+    position:
+        label: 'ten31.otms::lang.fields.position'
+        type: text
+        searchable: true
+        sortable: true
+    company_name:
+        label: 'ten31.otms::lang.fields.company_name'
+        type: text
+        searchable: true
+        sortable: true
+    telephone:
+        label: 'ten31.otms::lang.fields.mobile'
+        type: text
+        searchable: true
+        sortable: true
+    email:
+        label: 'ten31.otms::lang.fields.email'
+        type: text
+        searchable: true
+    system:
+        label: 'ten31.otms::lang.fields.system'
+        type: text
+    note:
+        label: 'ten31.otms::lang.fields.note'
+        type: text
+        searchable: true
+    created_at:
+        label: 'ten31.otms::lang.fields.created_at'
+        type: datetime
+        searchable: true
+        sortable: true

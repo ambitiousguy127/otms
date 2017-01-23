@@ -1,0 +1,18 @@
+title = "汽车"
+url = "/vehicle"
+layout = "default-submenu"
+is_hidden = 0
+==
+{% put herobg %}
+    {{ herobg | media }}
+{% endput %}
+
+{% put submenuelements %}
+    {% for item in staticMenu.menuItems %}
+        <li><a href="{{ item.url |app }}">{{ item.title|_ }}</a></li>
+    {% endfor %}
+{% endput %}
+
+{% partial "products/vehicle" %}
+
+{% partial "section-requestdemo" %}

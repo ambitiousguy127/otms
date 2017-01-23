@@ -1,0 +1,21 @@
+fields:
+    access_token:
+        label: Current Access Token
+        type: text
+        diabled: true
+        preset: access_token
+    app_key:
+        label: 'App Key'
+        oc.commentPosition: ''
+        span: full
+        type: text
+    username:
+        label: Login
+        oc.commentPosition: ''
+        span: full
+        type: text
+    password:
+        label: Password
+        oc.commentPosition: ''
+        span: full
+        type: text

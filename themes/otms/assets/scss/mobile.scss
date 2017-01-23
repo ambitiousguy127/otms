@@ -1,0 +1,678 @@
+// == > mobile media queries
+
+@mixin bp-large {
+  @media (min-width: 768px) and (max-width: 998px) {
+    @content;
+  }
+}
+
+@mixin bp-medium {
+  @media only screen and (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin bp-small {
+  @media only screen and (max-width: 468px) {
+    @content;
+  }
+}
+
+@include bp-large {
+  .header {
+    .navbar-default {
+      .nav {
+        li {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .sub-menu.fixed {
+    top: 87px;
+  }
+  .main-banner.home {
+    .carousel {
+      .carousel-inner {
+        .item {
+          img {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+  }
+  .anchor {
+    height: 128px;
+    margin-top: -128px;
+  }
+  // ==> header {
+  .header {
+    .navbar-default {
+      .navbar-brand {
+        float: left;
+        height: auto;
+      }
+      .hidden-btn {
+        display: none;
+      }
+      .visible-btn {
+        display: block;
+      }
+      .navbar-header {
+        position: relative;
+        .button {
+          float: right;
+          margin: 19px 0;
+          margin-right: 10px;
+        }
+      }
+      .navbar-toggle {
+        position: absolute;
+        left: 47.5%;
+        margin-left: auto;
+        margin-right: auto;
+        top: 20%;
+        border: 0;
+        display: table;
+        margin: 0 auto;
+
+        span {
+          margin: 7px 0;
+        }
+        &:focus, &:hover {
+          background: none;
+        }
+      }
+      .navbar-collapse {
+        .navbar-nav {
+          margin: 0;
+          padding-top: 10px;
+          padding-bottom: 0;
+          li {
+            text-align: center;
+          }
+        }
+        .navbar-right {
+          margin-top: 0;
+          padding-top: 10px;
+          padding-bottom: 30px;
+          .contact {
+            margin: 0;
+          }
+          .text-left, .text-right {
+            text-align: center;
+          }
+        }
+      }
+    }
+
+  }
+}
+
+@include bp-large {
+  h1 {
+    font-size: 45px;
+  }
+  .blog-content {
+    .blog-wrapper {
+      padding: 10px;
+    }
+  }
+  footer {
+    .qr-codes {
+      .list-inline {
+        li {
+          margin: 0 25px;
+        }
+      }
+    }
+  }
+  .header {
+    .navbar-default {
+      .navbar-right {
+        margin-left: 0px;
+      }
+    }
+  }
+  .benefits-content-section {
+    .content-text {
+      h6 {
+        margin-top: 20px;
+      }
+    }
+  }
+  .benefits-section {
+    background: #fff;
+    .benefits-content {
+      margin-top: 0;
+    }
+    .testimonial-box {
+      .testimonial-text {
+        display: table;
+        margin-bottom: 20px;
+      }
+      .person-box {
+        margin: 0 auto;
+        .person-text {
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+  .contact-section {
+    &.request-demo {
+      .contact-form {
+        margin: 0 auto;
+        display: table;
+      }
+    }
+  }
+
+  .success-section {
+    .success-box {
+      width: 48%;
+      float: left;
+      margin: 0 1% 2% 1%;
+      display: inline-block;
+    }
+  }
+  .partners-content {
+    .partners-list {
+      padding: 0;
+      &.leaders {
+        .media-list {
+          .media-left {
+            & > a {
+              padding: 0;
+              img {
+                width: 100px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  #cd-timeline {
+    margin-top: 0;
+    &::before {
+      left: auto;
+      right: -40px;
+    }
+    .cd-timeline-block .cd-date {
+      text-align: right;
+    }
+    .cd-timeline-header {
+      margin-left: 0;
+      .cd-timeline-header-span {
+        &::before {
+          top: 34px;
+          left: 100%;
+          border-color: transparent;
+          border-left-color: $color-3;
+        }
+
+      }
+    }
+  }
+  .cd-timeline-img {
+    right: -58px;
+    left: auto;
+  }
+
+  .company-content {
+    .content-wrapper {
+      padding: 0;
+    }
+  }
+  .why-cloud-section {
+    .clouds {
+      width: 47%;
+      float: left;
+    }
+    .cloud-img {
+      width: 50%;
+      float: right;
+    }
+    .cloud-buttons {
+      clear: both;
+      margin-bottom: 30px;
+    }
+    .testimonial-box {
+      border-top: 1px solid $blue-main-color;
+      clear: both;
+      margin: 0 5%;
+      padding-top: 30px;
+      .testimonial-text {
+        display: table;
+        margin-bottom: 20px;
+        padding: 0 25px;
+      }
+      .person-box {
+        margin: 0 auto;
+        border-top: 0;
+        padding-top: 0;
+        .triangle {
+          display: none;
+        }
+        .person-text {
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+  .sidebar {
+    .sign-up-block {
+      .sign-text {
+        margin-left: 5px;
+        h2 {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+  .find-our-products-section {
+    h1 {
+      margin-top: 10px;
+    }
+  }
+  .versions-section {
+    .product {
+      h6 {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+@include bp-medium {
+  footer {
+    ul {
+      li {
+        a {
+          position: relative;
+          z-index: 2;
+        }
+      }
+    }
+  }
+  .no-pad-bot {
+    &.mobile {
+      padding-bottom: 50px;
+      h2 {
+        margin-top: 40px;
+      }
+    }
+  }
+  .text-center-mobile {
+    text-align: center;
+  }
+  body {
+    padding-top: 85px;
+  }
+  .button {
+    font-size: 16px;
+  }
+  .margin-top {
+    margin-top: 10px;
+  }
+  .success-box {
+    img {
+      width: 100%;
+    }
+  }
+  .news-content {
+    img {
+      max-width: 150px;
+    }
+  }
+  .blog-pg {
+    .related-articles {
+      .media-list {
+        .media {
+          width: 100%;
+        }
+      }
+    }
+  }
+  body.cn, body.en {
+    h1 {
+      font-size: 35px;
+    }
+  }
+
+  .sub-menu {
+    .list-inline {
+      text-align: center;
+      li {
+        margin-right: 10px;
+      }
+    }
+  }
+  .sub-menu.fixed {
+    top: 84px;
+  }
+
+  .benefits-section {
+    background: #fff;
+    .benefits-content {
+      margin-top: 0;
+    }
+    .testimonial-box {
+      .testimonial-text {
+        display: table;
+        margin-bottom: 20px;
+      }
+      .person-box {
+        margin: 0 auto;
+        .person-text {
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+  .strategy-section {
+    .button-orange {
+      margin: 0 auto;
+      display: table;
+      margin-top: 30px;
+    }
+  }
+  .implement-section {
+    img {
+      margin: 20px auto;
+    }
+  }
+  .contact-section {
+
+    .contact-form {
+      width: auto;
+      .col-sm-4 {
+        float: left;
+        width: 50%;
+        margin-bottom: 15px;
+      }
+    }
+
+  }
+  .company-content {
+    .content-wrapper {
+      padding: 0;
+    }
+  }
+  #cd-timeline {
+    margin-top: 0;
+    padding-right: 50px;
+    &::before {
+      left: auto;
+      right: 12px;
+    }
+    .cd-timeline-block .cd-date {
+      text-align: right;
+    }
+    .cd-timeline-header {
+      margin-left: 0;
+      h2 {
+        font-size: 20px;
+      }
+      .cd-timeline-header-span {
+        &::before {
+          top: 34px;
+          left: 100%;
+          border-color: transparent;
+          border-left-color: $color-3;
+        }
+
+      }
+    }
+  }
+  .main-banner.home {
+    .banner-content {
+      width: 100%;
+    }
+    .carousel {
+      .carousel-inner {
+        height: auto;
+      }
+    }
+  }
+  .cd-timeline-img {
+    right: -55px;
+    left: auto;
+  }
+  .success-section {
+    .success-box {
+      width: 48%;
+      float: left;
+      margin: 0 1% 2% 1%;
+      display: inline-block;
+
+    }
+    .button-orange {
+      margin-top: 20px;
+    }
+  }
+  .contact-content {
+    .col-md-6:first-child {
+      h2 {
+        margin-top: 0;
+      }
+    }
+    h2 {
+      margin-top: 40px;
+    }
+  }
+  .partners-content {
+    .partners-list {
+      padding: 0;
+      .media-left {
+        display: block;
+      }
+      &.leaders {
+        .media-list {
+          .media-left {
+            & > a {
+              padding: 0;
+              img {
+                width: 100px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .why-cloud-section {
+    .clouds {
+      width: 47%;
+      float: left;
+    }
+    .cloud-img {
+      width: 50%;
+      float: right;
+    }
+    .cloud-buttons {
+      clear: both;
+      margin-bottom: 30px;
+    }
+    .testimonial-box {
+      border-top: 1px solid $blue-main-color;
+      clear: both;
+      margin: 0 5%;
+      padding-top: 30px;
+      .testimonial-text {
+        display: table;
+        margin-bottom: 20px;
+        padding: 0 30px;
+        p {
+          padding: 0 0;
+        }
+        .quote {
+          top: 0;
+          width: 20px;
+          &.left {
+            left: 0;
+          }
+        }
+      }
+      .person-box {
+        margin: 0 auto;
+        border-top: 0;
+        padding-top: 0;
+        .triangle {
+          display: none;
+        }
+        .person-text {
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+  .blog-content {
+    .blog-wrapper {
+      padding: 10px;
+    }
+  }
+  .case-contact-form {
+    margin: 0 auto
+  }
+
+  .benefits-content-section {
+    .content-wrap {
+      display: table;
+      margin: 0 auto;
+    }
+    .content-text {
+      img {
+        margin: 0 auto;
+      }
+      h2 {
+        margin-top: 20px;
+      }
+    }
+  }
+  .versions-section {
+    .button-orange {
+      margin-top: 20px;
+    }
+    .product-box {
+      margin: 0 auto;
+      display: table;
+      .no-mt-top {
+        margin-top: 0;
+      }
+    }
+  }
+  .transport-section {
+    text-align: center;
+  }
+  .find-our-products-section {
+    text-align: center;
+    h1 {
+      margin-top: 0;
+    }
+  }
+  footer {
+    .col-sm-2 {
+      width: 20%;
+      float: left;
+    }
+    .qr-codes {
+      .list-inline {
+        li {
+          margin: 0;
+          margin-bottom: 10px;
+          width: 28%;
+        }
+      }
+    }
+  }
+}
+
+// media end
+
+@include bp-small {
+  .anchor {
+    height: 125px;
+    margin-top: -125px;
+  }
+  .hidden-xs-xs {
+    display: none !important;
+  }
+  .header {
+    .navbar-default {
+      .navbar-brand {
+        img {
+          width: 70%;
+          margin: 10px 0px;
+        }
+      }
+    }
+  }
+
+  .benefits-section {
+    .media-list {
+      .media {
+        width: 100%;
+      }
+    }
+    .benefits-links-block {
+      button {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  // twice?
+  .success-section {
+    .success-box {
+      width: 80%;
+      float: none;
+      margin: 0 auto 2%;
+      display: table;
+    }
+  }
+
+  .why-cloud-section {
+    .clouds {
+      width: 100%;
+      padding: 0 5%;
+      margin-top: 20px;
+    }
+    .cloud-img {
+      display: none;
+    }
+  }
+  footer {
+    .col-sm-2 {
+      width: 50%;
+      float: left;
+    }
+    .qr-codes {
+      .list-inline {
+        text-align: center;
+        li {
+          width: auto;
+          display: table;
+          margin: 20px auto;
+        }
+      }
+    }
+    .last-col {
+      clear: both;
+      text-align: center;
+      padding-top: 20px;
+      .langs {
+        margin-top: 5px;
+      }
+      button {
+        margin-top: 20px;
+      }
+    }
+  }
+}

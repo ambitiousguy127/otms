@@ -1,0 +1,23 @@
+columns:
+    title:
+        label: 'ten31.otms::lang.fields.title'
+        type: text
+        searchable: true
+        sortable: true
+    thumb:
+        label: illustration
+        type: html
+        sortable: false
+    slug:
+        label: Slug
+        type: text
+    active:
+        label: Active
+        type: switch
+        searchable: true
+        sortable: true
+    date:
+        label: Date
+        type: text
+        searchable: true
+        sortable: true

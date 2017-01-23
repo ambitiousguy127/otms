@@ -1,0 +1,56 @@
+title = "下载"
+url = "/download"
+layout = "page-nohero-2col"
+is_hidden = 0
+meta_title = "下载"
+==
+<?php
+use Ten31\Otms\Models\Download;
+use Ten31\Dictionnary\Models\Settings;
+use Ten31\Otms\Models\Functions;
+
+function onStart(){
+    
+    $this['limit_header_title'] = Config::get('ten31.dictionnary::str_limits.zh_indexheader_title');
+    $this['limit_header_excerpt'] = Config::get('ten31.dictionnary::str_limits.zh_indexheader_excerpt');
+    
+    $this['limit_tile_title'] = Config::get('ten31.dictionnary::str_limits.zh_newstile_title');
+    $this['limit_tile_excerpt'] = Config::get('ten31.dictionnary::str_limits.zh_newstile_excerpt');
+
+    $lang = Functions::getCurrentLanguage();
+    $translated_models = Functions::getTranslatedModels('ten31\Otms\Models\Download',$lang);
+    $this['downloads'] = Download::where('active', 1)->whereIn('id', $translated_models)->orderBy('date', 'desc')->paginate(4);
+    $this['dlcount'] = $this['downloads']->count();
+    
+    //debug($this['highlighted']->getIndexIllustration());
+}
+?>
+==
+{% put colleftcontent %}
+        {% for key, download in downloads %}
+            {% if key==0 or (key % 3 == 0) %}<div class="row">{% endif %}
+                <div class="col-sm-6">
+                    <div class="success-box">
+                        <div class="image-wrapper"><img src="{{ download.getSuccessBoxIllustration }}" alt="" class="img-responsive"> </div>
+                        <div class="success-content"><a href="{{ 'dynamic/download'|page({ slug: download.slug }) }}"><h2>{{ str_limit(html_strip(download.title), 20) }}</h2></a>
+                            <p>{{ str_limit(html_strip(download.body), 125) }} </p>
+                        </div>
+                    </div>
+                </div>
+            {% if key==1 or key==3 or key==5 or key == (dlcount-1) %}</div>{% endif %}
+        {% endfor %}
+
+    <div class="content-text">
+        <nav class="text-center news-content">
+            <ul class="pagination">
+                {{ downloads.render|raw }}
+            </ul>
+        </nav>
+    </div>
+{% endput %}
+
+
+{% put colrightcontent %}
+    {% partial "col-right/panel-list" %}
+    {% partial "col-right/library" %}
+{% endput %}

@@ -1,0 +1,6 @@
+fields:
+    name:
+        label: 'Client Type Name'
+        oc.commentPosition: ''
+        span: full
+        type: text

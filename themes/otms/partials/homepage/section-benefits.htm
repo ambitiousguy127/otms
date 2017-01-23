@@ -1,0 +1,27 @@
+[viewBag]
+snippetName = "First section of the homepage"
+==
+<span class="anchor" id="advantage-section"></span>
+
+{% put styles %}
+<style type="text/css">
+    @media only screen and (min-width: 826px) {
+        .benefits-section {
+            background: #fff url('{{'homepage/benefits-img.png '|media}}') no-repeat;
+            background-position: 50% 40%;
+        }
+    }
+    @media only screen and (max-width: 825px) {
+        .benefits-section {
+            background: #fff url('{{"homepage/benefits-tablet.png"|media}}') no-repeat;
+            background-position: 50% 20%;
+        }
+    }
+</style>
+{% endput %}
+
+<section class="section benefits-section img-responsive">
+    <div class="container">
+        {% content 'homepage/benefits' %}
+    </div>
+</section>

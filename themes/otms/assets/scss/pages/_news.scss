@@ -1,0 +1,36 @@
+// ==> news page styles
+
+.news-content {
+  img {
+    max-width: 300px;
+  }
+  .pagination {
+    margin-bottom: 0;
+    li {
+      a {
+        border-radius: 0;
+        background: transparent;
+        border: 0;
+        color: #979797;
+        &:hover {
+          background: #e67619;
+          color: #fff;
+        }
+      }
+      &.active {
+        a {
+          background: #e67619;
+          color: #fff;
+        }
+      }
+      &:last-child {
+        a {
+          &:hover {
+            color: #979797;
+            background: transparent;
+          }
+        }
+      }
+    }
+  }
+}

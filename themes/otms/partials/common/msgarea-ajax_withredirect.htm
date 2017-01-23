@@ -1,0 +1,34 @@
+[viewBag]
+==
+{% if result %}
+    <div class="message {{result.status}}-msg">
+        {% for message in result.messages %}
+        {{message}}<br>
+        {% endfor %}
+    </div>
+    {% if result.status == "success" %}
+        <script>
+            function setCookie(cname, cvalue, exdays){
+                var d = new Date();
+                d.setTime(d.getTime() +  (exdays*24*60*60*1000));
+                var expires = "expires="+ d.toUTCString();
+                document.cookie = cname + "=" + cvalue + "; " + expires;
+            }
+            setCookie('oTMS','formComplete',1000);
+
+            $('#show').hide();
+            $('.df-hide').show();
+            
+            function Redirect(){
+                window.location.href='{{'static/home'|page}}';
+            }
+            setTimeout('Redirect()', 3000);
+        </script>
+
+    {% else %}
+<script>
+    $('#show').show();
+    $('.df-hide').hide();
+</script>
+    {% endif %}
+{% endif %}

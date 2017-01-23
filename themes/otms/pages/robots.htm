@@ -1,0 +1,22 @@
+title = "Robots.txt"
+url = "/robots.txt"
+is_hidden = 0
+==
+<?php
+function onStart(){
+    
+        // get if the domain's TLD is cn
+    if (strpos(Request::url(), '.cn') !== false){ 
+        $this['tld'] = 'cn';
+    }
+    else $this['tld'] = 'com';
+    
+}
+?>
+==
+User-agent: *
+{% if tld == 'cn' %}
+Disallow: /
+{% else %}
+Disallow: /backend/
+{% endif %}

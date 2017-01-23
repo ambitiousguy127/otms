@@ -1,0 +1,129 @@
+[viewBag]
+==
+<?php
+use Ten31\Dictionnary\Models\Settings;
+use Ten31\Otms\Models\News;
+use Ten31\Otms\Models\Post;
+use Ten31\Otms\Models\Download;
+use Ten31\Otms\Models\Functions;
+
+
+function onStart(){
+
+    $this['limit_tile_excerpt'] = Config::get('ten31.dictionnary::str_limits.zh_newstile_excerpt');
+    $this['limit_tile_title'] = Config::get('ten31.dictionnary::str_limits.zh_fulltile_title');
+    
+    if(Functions::getCurrentLanguage() == "en"){
+       $this['news'] = News::findOrFail(Settings::get('home_highlighted_news_en'));
+        $this['post'] = Post::findOrFail(Settings::get('home_highlighted_post_en'));
+        $this['download'] = Download::findOrFail(Settings::get('home_highlighted_download_en'));
+    }else{
+        $this['news'] = News::findOrFail(Settings::get('home_highlighted_news'));
+        $this['post'] = Post::findOrFail(Settings::get('home_highlighted_post'));
+        $this['download'] = Download::findOrFail(Settings::get('home_highlighted_download'));
+    }
+
+    $lang = Functions::getCurrentLanguage();
+    $translated_models = Functions::getTranslatedModels('ten31\Otms\Models\News',$lang);
+    $this['newsLink'] = News::where('active', 1)->whereIn('id', $translated_models)->orderBy('date', 'desc')->take(4)->get();
+    $this['postLink'] = Post::where('active', 1)->whereIn('id', $translated_models)->orderBy('date', 'desc')->take(4)->get();
+    $this['downloadLink'] = Download::where('active', 1)->whereIn('id', $translated_models)->orderBy('date', 'desc')->take(4)->get();
+
+
+
+    //debug($this['highlighted']->getIndexIllustration());
+}
+?>
+==
+<span class="anchor" id="library-highlight"></span>
+<section class="section success-section">
+    <div class="container">
+        <div class="row">
+            <h3 class="text-center">{{'资料库'|_}}</h3>
+            <div class="col-md-4">
+                <div class="success-box">
+                    <div class="image-wrapper">
+                        <a href="{{ 'dynamic/news-details'|page({ slug: news.slug }) }}"><img src="{{news.getSuccessBoxIllustration}}" alt="" class="img-responsive"></a>
+                    </div>
+                    <div class="success-content">
+                        <a href="{{ 'dynamic/news-details'|page({ slug: news.slug }) }}">
+                            <h4>{{'新闻资讯'|_}}</h4>
+                            <h2>{{html_strip(news.title)}}</h2>
+                            <p class="date">{{news.date}}</p>
+                            <hr />
+                        </a>
+                        {% for key, post in newsLink %}
+                        <a class="featured" href="{{ 'dynamic/news-details'|page({ slug: post.slug }) }}">
+                         {{post.date}} {{post.title}}</a><br /><br />
+                        {%endfor%}
+                    </div>
+                    <div class="text-center bt">
+                        <a href="http://www.otms.com/zh/news">
+                            <button class="button button-orange bottom" >{{'了解更多'|_}}</button>
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-md-4">
+                <div class="success-box">
+                    <div class="image-wrapper">
+                        <a href="{{ 'dynamic/post'|page({ slug: post.slug }) }}"><img src="{{post.getSuccessBoxIllustration}}" alt="" class="img-responsive"></a>
+                    </div>
+                    <div class="success-content">
+                        <a href="{{ 'dynamic/post'|page({ slug: post.slug }) }}">
+                            <h4>{{'博客'|_}}</h4>
+                            <h2>{{html_strip(post.title)}}</h2>
+                            <p class="date">{{post.date}}</p>
+                        </a>
+                            <hr />
+                        {% for key, post in postLink %}
+                        <a class="featured" href="{{ 'dynamic/post'|page({ slug: post.slug }) }}">
+                       {{post.date}} {{post.title}}</a><br /><br />
+                        {%endfor%}
+                    </div>
+                    <div class="text-center bt">
+                        <a href="http://www.otms.com/zh/blog">
+                            <button class="button button-orange bottom">{{'了解更多'|_}}</button>
+                        </a>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="col-md-4">
+                <div class="success-box">
+                    <div class="image-wrapper">
+                        <a href="{{ 'dynamic/download'|page({ slug: download.slug }) }}"><img src="{{download.getSuccessBoxIllustration}}" alt="" class="img-responsive"></a>
+                    </div>
+                    <div class="success-content">
+                        <a href="{{ 'dynamic/download'|page({ slug: download.slug }) }}">
+                            <h4>{{'下载'|_}}</h4>
+                            <h2>{{html_strip(download.title)}}</h2>
+                            <p class="date">{{download.date}}</p>
+                            <hr />
+                        </a>
+                        {% for key, post in downloadLink %}
+
+                        <a class="featured" href="{{ 'dynamic/download'|page({ slug: post.slug }) }}">{{post.date}} {{post.title}}</a><br /><br />
+
+                        {%endfor%}
+                    </div>
+                    <div class="text-center bt">
+                        <a href="http://www.otms.com/zh/download">
+                            <button class="button button-orange bottom">{{'了解更多'|_}}</button>
+                        </a>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+    </div>
+</section>

@@ -1,0 +1,14 @@
+// ==> library page styles
+
+section.blog-banner {
+  background: #12b5c2;
+  padding-top: 42px;
+  padding-bottom: 0;
+
+  .blog-details {
+    padding: 40px 0;
+    h2,h4,p {
+      color: #fff;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+list: $/ten31/otms/models/job/columns.yaml
+modelClass: ten31\Otms\Models\Job
+title: Jobs
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+defaultSort: date
+recordsPerPage: 25
+filter: config_filter.yaml
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'ten31/otms/jobs/update/:id'

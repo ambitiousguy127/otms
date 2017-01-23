@@ -1,0 +1,69 @@
+title = "加入oTMS"
+url = "/join-us"
+layout = "page-nohero-2col"
+is_hidden = 0
+==
+<?php
+use Ten31\Otms\Models\Job;
+use Ten31\Otms\Models\Location;
+
+
+function onStart(){
+    
+    $this['locations'] = Location::get();
+    //debug($this['locations']);
+    $this['jobs'] = Job::where('active', 1)->get();
+    
+    //debug($this['highlighted']->getIndexIllustration());
+}
+?>
+==
+{% partial "common/sidebutton" %}
+
+{% put colrightcontent %}
+    {% partial "col-right/panel-list" %}
+    {% partial "col-right/library" %}
+{% endput %}
+
+{% put colleftcontent %}
+    <div class="company-content"> <img src="{{"about/joinus.jpg"|media}}" alt="Company Founders" class="img-responsive">
+        <div class="join-section">
+            <h2>{{'加入我们'|_}}</h2>
+            <ul class="nav nav-tabs" role="tablist">
+                {% for key, location in locations %}
+                    <li role="presentation" class="{% if key == 0 %}active{% endif %}"><a href="#{{location.name}}" aria-controls="{{location.name}}" role="tab" data-toggle="tab">{{location.name}}</a></li>
+                {% endfor %}
+            </ul>
+            <div class="tab-content">
+                
+                {% for key, location in locations %}
+                    <div role="tabpanel" class="tab-pane {% if key == 0 %}active{% endif %}" id="{{location.name}}">
+                        
+                        {% for key, job in jobs %}
+                            {% if job.locations_id == location.id  %}
+                                <div class="panel-group" id="accordion{{key}}" role="tablist" aria-multiselectable="true">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingTwo">
+                                            <h4 class="panel-title"> <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion{{key}}" href="#collapse{{key}}" aria-expanded="false" aria-controls="collapse{{key}}">{{job.title}}<br> <small>{{job.date}}</small> <img src="{{"assets/img/arrow-bottom.png"|theme}}" class="img-responsive center-block" alt=""> </a> </h4> </div>
+                                        <div id="collapse{{key}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                            <div class="panel-body">
+                                                {{job.body|raw}}
+                                                <a href="#collapse{{key}}" role="button" data-toggle="collapse" data-parent="#accordion{{key}}"><img src="{{"assets/img/arrow-top.png"|theme}}" class="img-responsive center-block" alt=""></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                        
+                    </div>
+                {% endfor %}
+                
+            </div>
+        </div>
+    </div>
+{% endput %}
+
+{% put bottom %}
+    {% partial "section-requestdemo" %}
+{% endput %}

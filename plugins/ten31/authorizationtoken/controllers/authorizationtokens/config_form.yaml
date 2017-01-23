@@ -1,0 +1,10 @@
+name: AuthorizationTokens
+form: $/ten31/authorizationtoken/models/authorizationtoken/fields.yaml
+modelClass: Ten31\AuthorizationToken\Models\AuthorizationToken
+defaultRedirect: ten31/authorizationtoken/authorizationtokens
+create:
+    redirect: 'ten31/authorizationtoken/authorizationtokens/update/:id'
+    redirectClose: ten31/authorizationtoken/authorizationtokens
+update:
+    redirect: ten31/authorizationtoken/authorizationtokens
+    redirectClose: ten31/authorizationtoken/authorizationtokens

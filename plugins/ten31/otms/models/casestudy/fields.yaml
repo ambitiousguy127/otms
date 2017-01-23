@@ -1,0 +1,100 @@
+fields:
+    title:
+        label: Title
+        oc.commentPosition: ''
+        span: full
+        type: text
+        required: true
+    slug:
+        label: Slug
+        oc.commentPosition: ''
+        span: full
+        preset:
+            field: title
+            type: slug
+        type: text
+        required: true
+    metadescription:
+        label: 'Meta Description'
+        oc.commentPosition: ''
+        span: full
+        type: text
+    metakeywords:
+        label: 'Meta Keywords'
+        oc.commentPosition: ''
+        span: full
+        type: text
+    clienttypes:
+        span: full
+        path: field_clienttypes
+        type: partial
+        required: true
+    quotation:
+        label: Quotation
+        oc.commentPosition: ''
+        span: full
+        type: text
+        required: true
+    quotation_source:
+        label: Quotation Source
+        oc.commentPosition: ''
+        span: full
+        type: text
+        required: true
+    quotation_position:
+        label: Quotation Position
+        oc.commentPosition: ''
+        span: full
+        type: text
+        required: true
+    quotation_thumbnail:
+        label: Quotation Thumbnail
+        span: full
+        oc.commentPosition: ''
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        type: fileupload
+        required: true
+    illustration:
+        label: Case Study Illustration
+        span: full
+        oc.commentPosition: ''
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        type: fileupload
+        required: true
+    attachement:
+        label: Attachement
+        oc.commentPosition: ''
+        mode: file
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: full
+        type: fileupload
+    body:
+        label: Body
+        size: huge
+        oc.commentPosition: ''
+        span: full
+        type: richeditor
+        required: true
+    date:
+        label: Date
+        oc.commentPosition: ''
+        mode: date
+        span: full
+        type: datepicker
+        required: true
+    active:
+        label: Active
+        span: full
+        default: 1
+        type: switch

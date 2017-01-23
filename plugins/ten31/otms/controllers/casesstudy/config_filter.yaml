@@ -1,0 +1,9 @@
+# ===================================
+# Filter Scope Definitions
+# ===================================
+
+scopes:
+    active:
+        label: 'ten31.otms::lang.ctas.hide_unactive'
+        type: checkbox
+        conditions: active = 1

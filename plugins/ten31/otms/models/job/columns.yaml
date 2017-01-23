@@ -1,0 +1,22 @@
+columns:
+    title:
+        label: 'ten31.otms::lang.name.jobname'
+        type: text
+        searchable: true
+        sortable: true
+    locations_id:
+        label: City
+        relation: locations
+        select: name
+        searchable: true
+        sortable: true
+    active:
+        label: Active
+        type: switch
+        searchable: true
+        sortable: true
+    date:
+        label: Date
+        type: date
+        searchable: true
+        sortable: true

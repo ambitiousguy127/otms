@@ -1,0 +1,31 @@
+title = "官网"
+url = "/"
+layout = "default"
+is_hidden = 0
+meta_title = "首页"
+meta_description = "oTMS是国内领先的一站式运输服务平台，基于首创的社区型“SaaS平台+移动APP”模式，将货主、第三方物流公司、运输公司、司机和收货人无缝互联，形成一个基于核心流程、平衡、多赢的现代运输商业网络，带给客户全新管理体验，创造更多商业机会。"
+
+[staticMenu]
+code = "submenu-benefits"
+==
+{% partial "hero-rotate" %}
+
+{% partial "common/sidebutton" %}
+
+{% partial "submenu" %}
+
+{% put submenuelements %}
+    {% for item in staticMenu.menuItems %}
+        <li><a href="{{ item.url |app }}">{{ item.title|_ }}</a></li>
+    {% endfor %}
+{% endput %}
+
+{% partial "homepage/section-benefits" %}
+
+{% partial "homepage/section-whyotms" %}
+
+{% partial "homepage/section-success" %}
+
+{% partial "homepage/section-whycloud" %}
+
+{% partial "homepage/section-libraryhighlight"%}

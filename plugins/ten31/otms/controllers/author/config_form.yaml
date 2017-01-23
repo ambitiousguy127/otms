@@ -1,0 +1,11 @@
+name: Author
+modelClass: ten31\Otms\Models\Author
+form: $/ten31/otms/models/author/fields.yaml
+defaultRedirect: ten31/otms/author
+create:
+    redirect: 'ten31/otms/author/update/:id'
+    redirectClose: ten31/otms/author
+update:
+    redirect: ten31/otms/author
+    redirectClose: ten31/otms/author
+preview: {  }

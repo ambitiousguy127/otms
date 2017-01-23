@@ -1,0 +1,11 @@
+list: $/ten31/authorizationtoken/models/authorizationtoken/columns.yaml
+modelClass: Ten31\AuthorizationToken\Models\AuthorizationToken
+title: AuthorizationTokens
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'ten31/authorizationtoken/authorizationtokens/update/:id'

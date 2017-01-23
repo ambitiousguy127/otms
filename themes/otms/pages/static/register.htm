@@ -1,0 +1,42 @@
+title = "会员注册"
+url = "/register"
+layout = "default-submenu"
+is_hidden = 0
+==
+<?php
+use Ten31\Dictionnary\Models\Settings;
+use Ten31\Otms\Controllers\FormHandler;
+
+function onStart(){
+    $this['herobg'] = Settings::get('hero-bg-demo');
+}
+
+function onProcess()
+{
+    //print_r(post());
+    $form_handler = new FormHandler;
+    $this["result"] = $form_handler->sendXiaoshouyiLead(post(), 'register');
+
+    if($this["result"]['status']=='success'){
+        $to = post('email');
+        $headers  = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= "Content-Type: text/html; charset=UTF-8";
+        Mail::sendTo($to, 'backend::mail.register' );
+    }
+}
+?>
+==
+{% put submenubottom %}
+    <div id="result">{% partial "common/msgarea-ajax" %}</div>
+{% endput %}
+
+
+<section class="section contact-section request-demo" style="background: url({{herobg|media}}) 100% 0 no-repeat; background-size: cover;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-6 col-md-6">
+                {% partial "forms/register" %}
+            </div>
+        </div>
+    </div>
+</section>

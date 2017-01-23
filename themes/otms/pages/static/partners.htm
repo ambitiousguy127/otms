@@ -1,0 +1,22 @@
+title = "合作伙伴"
+url = "/partners"
+layout = "page-nohero-2col"
+is_hidden = 0
+
+[staticMenu]
+code = "submenu-about"
+==
+{% put submenuelements %}
+    {% for item in staticMenu.menuItems %}
+        <li><a href="{{ item.url |app }}">{{ item.title|_ }}</a></li>
+    {% endfor %}
+{% endput %}
+
+{% put colleftcontent %}
+    {% partial "col-left/partners" %}
+{% endput %}
+
+{% put colrightcontent %}
+    {% partial "col-right/panel-list" %}
+    {% partial "col-right/library" %}
+{% endput %}

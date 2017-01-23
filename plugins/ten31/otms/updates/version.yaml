@@ -1,0 +1,122 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table ten31_otms_blog'
+    - builder_table_create_ten31_otms_blog.php
+1.0.3:
+    - 'Updated table ten31_otms_blog'
+    - builder_table_update_ten31_otms_blog.php
+1.0.4:
+    - 'Created table ten31_otms_blog_authors'
+    - builder_table_create_ten31_otms_blog_authors.php
+1.0.5:
+    - 'Updated table ten31_otms_blog'
+    - builder_table_update_ten31_otms_blog_2.php
+1.0.6:
+    - 'Created table ten31_otms_news'
+    - builder_table_create_ten31_otms_news.php
+1.0.7:
+    - 'Created table ten31_otms_cases'
+    - builder_table_create_ten31_otms_cases.php
+1.0.8:
+    - 'Created table ten31_otms_jobs'
+    - builder_table_create_ten31_otms_jobs.php
+1.0.9:
+    - 'Created table ten31_otms_jobs_locations'
+    - builder_table_create_ten31_otms_jobs_locations.php
+1.0.10:
+    - 'Created table ten31_otms_downloads'
+    - builder_table_create_ten31_otms_downloads.php
+1.0.11:
+    - 'Updated table ten31_otms_cases'
+    - builder_table_update_ten31_otms_cases.php
+1.0.12:
+    - 'Created table ten31_otms_case_client_type'
+    - builder_table_create_ten31_otms_case_client_type.php
+1.0.13:
+    - 'Updated table ten31_otms_cases'
+    - builder_table_update_ten31_otms_cases_2.php
+1.0.14:
+    - 'Updated table ten31_otms_blog'
+    - builder_table_update_ten31_otms_blog_3.php
+1.0.15:
+    - 'Updated table ten31_otms_cases'
+    - builder_table_update_ten31_otms_cases_3.php
+1.0.16:
+    - 'Updated table ten31_otms_downloads'
+    - builder_table_update_ten31_otms_downloads.php
+1.0.17:
+    - 'Updated table ten31_otms_news'
+    - builder_table_update_ten31_otms_news.php
+1.0.18:
+    - 'Updated table ten31_otms_blog'
+    - builder_table_update_ten31_otms_blog_4.php
+1.0.19:
+    - 'Updated table ten31_otms_cases'
+    - builder_table_update_ten31_otms_cases_4.php
+1.0.20:
+    - 'Updated table ten31_otms_downloads'
+    - builder_table_update_ten31_otms_downloads_2.php
+1.0.21:
+    - 'Updated table ten31_otms_jobs'
+    - builder_table_update_ten31_otms_jobs.php
+1.0.22:
+    - 'Updated table ten31_otms_news'
+    - builder_table_update_ten31_otms_news_2.php
+1.0.23:
+    - 'Updated table ten31_otms_jobs'
+    - builder_table_update_ten31_otms_jobs_2.php
+1.0.24:
+    - 'Updated table ten31_otms_cases'
+    - builder_table_update_ten31_otms_cases_5.php
+1.0.25:
+    - 'Updated table ten31_otms_news'
+    - builder_table_update_ten31_otms_news_3.php
+1.0.26:
+    - 'Created table ten31_otms_leads'
+    - builder_table_create_ten31_otms_leads.php
+1.0.27:
+    - 'Created table ten31_otms_responsive_api'
+    - builder_table_create_ten31_otms_responsive_api.php
+1.0.28:
+    - 'Updated table ten31_otms_responsive_api'
+    - builder_table_update_ten31_otms_responsive_api.php
+1.0.29:
+    - 'Drop table ten31_otms_responsive_api'
+    - builder_table_delete_ten31_otms_responsive_api.php
+1.0.30:
+    - 'Created table ten31_otms_openapi_form'
+    - builder_table_create_ten31_otms_openapi_form.php
+1.0.31:
+    - 'Created table ten31_otms_systems'
+    - builder_table_create_ten31_otms_systems.php
+1.0.32:
+    - 'Updated table ten31_otms_systems'
+    - builder_table_update_ten31_otms_systems.php
+1.0.33:
+    - 'Updated table ten31_otms_openapi_form'
+    - builder_table_update_ten31_otms_openapi_form.php
+1.0.34:
+    - 'Updated table ten31_otms_openapi_form'
+    - builder_table_update_ten31_otms_openapi_form_2.php
+1.0.35:
+    - 'Updated table ten31_otms_openapi_form'
+    - builder_table_update_ten31_otms_openapi_form_3.php
+1.0.36:
+    - 'Drop table ten31_otms_systems'
+    - builder_table_delete_ten31_otms_systems.php
+1.0.37:
+    - 'Updated table ten31_otms_leads'
+    - builder_table_update_ten31_otms_leads.php
+1.0.38:
+    - 'Updated table ten31_otms_leads'
+    - builder_table_update_ten31_otms_leads_2.php
+1.0.39:
+    - 'Created table ten31_otms_rfqs'
+    - builder_table_create_ten31_otms_rfqs.php
+1.0.40:
+    - 'Updated table ten31_otms_leads'
+    - builder_table_update_ten31_otms_leads3.php
+1.0.41:
+    - 'Drop table ten31_otms_rfqs'
+    - builder_table_delete_ten31_otms_rfqs.php

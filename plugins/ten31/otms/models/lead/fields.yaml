@@ -1,0 +1,71 @@
+fields:
+    source:
+        label: 'ten31.otms::lang.fields.source'
+        oc.commentPosition: ''
+        span: auto
+        type: text
+    name:
+        label: Name
+        oc.commentPosition: ''
+        span: auto
+        type: text
+    company_name:
+        label: 'ten31.otms::lang.fields.company_name'
+        oc.commentPosition: ''
+        span: auto
+        type: text
+    mobile:
+        label: 'ten31.otms::lang.fields.mobile'
+        oc.commentPosition: ''
+        span: auto
+        type: text
+    email:
+        label: 'ten31.otms::lang.fields.email'
+        oc.commentPosition: ''
+        span: auto
+        type: text
+    lead_source_id:
+        label: 'Lead Source Id'
+        oc.commentPosition: ''
+        span: auto
+        type: text
+    service:
+        label: Service
+        oc.commentPosition: ''
+        span: auto
+        type: text
+    note:
+        label: 'ten31.otms::lang.fields.note'
+        oc.commentPosition: ''
+        span: auto
+        type: text
+    xsy_response:
+        label: 'Xsj Response'
+        oc.commentPosition: ''
+        span: auto
+        type: text
+    user_session_id:
+        label: user_session_id
+        oc.commentPosition: ''
+        span: auto
+        type: text
+    user_referer:
+        label: 'user referer'
+        oc.commentPosition: ''
+        span: auto
+        type: text
+    user_visited_pages:
+        label: 'user visited pages'
+        oc.commentPosition: ''
+        span: auto
+        type: text
+    updated_at:
+        label: 'updated at'
+        oc.commentPosition: ''
+        span: auto
+        type: text
+    created_at:
+        label: 'created at'
+        oc.commentPosition: ''
+        span: auto
+        type: text

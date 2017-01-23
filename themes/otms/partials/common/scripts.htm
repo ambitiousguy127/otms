@@ -1,0 +1,30 @@
+[viewBag]
+==
+<script src="{{ 'assets/js/lib/jquery-1.11.3.min.js'|theme }}"></script>
+<script src="{{ 'assets/js/lib/bootstrap.min.js'|theme }}"></script>
+<script src="{{ 'assets/js/otms.js'|theme }}"></script>
+<script src="{{ 'assets/js/min/main.js'|theme }}"></script>
+<script src="{{ 'assets/js/analytics.js'|theme }}"></script>
+
+<script type='text/javascript'>
+      var _vds = _vds || [];
+      window._vds = _vds;
+      (function(){
+        _vds.push(['setAccountId', '84c0b900141f2ff3']);
+        (function() {
+          var vds = document.createElement('script');
+          vds.type='text/javascript';
+          vds.async = true;
+          vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(vds, s);
+        })();
+      })();
+  </script>
+
+{% content 'scripts/footer-scripts-sitewide' %}
+
+{% if this.page.url == "/" %}{% content 'scripts/footer-scripts-home' %}{% endif %}
+
+{% framework extra %}
+{%scripts%}

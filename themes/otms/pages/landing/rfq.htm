@@ -1,0 +1,37 @@
+title = "RFQ"
+url = "/rfq/landingpage"
+layout = "landingpages"
+is_hidden = 0
+==
+<?php
+use Ten31\Otms\Controllers\PrizeFormHandler;
+use Ten31\Otms\Models\Functions;
+use Ten31\Dictionnary\Models\Settings;
+public function onContactProcess()
+{
+	$form_handler = new PrizeFormHandler;
+    $this["result"] = $form_handler->sendXiaoshouyiLead(post(), 'landing-rfq');
+	if(Functions::getCurrentLanguage() == "en"){
+    if($this["result"]['status']=='success'){
+        $to = post('email');
+        $headers  = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= "Content-Type: text/html; charset=UTF-8";
+        Mail::sendTo($to, 'backend::mail.landing-rfq' );
+    }
+    }else{
+        if($this["result"]['status']=='success'){
+            $to = post('email');
+            $headers  = 'MIME-Version: 1.0' . "\r\n";
+            $headers .= "Content-Type: text/html; charset=UTF-8";
+            Mail::sendTo($to, 'backend::mail.landing-rfq' );
+        }
+    }
+}
+?>
+==
+{% partial "landing/rfq-header" %}
+{% partial "landing/rfq-features" %}
+{% partial "landing/rfq-benefits" %}
+{% partial "landing/rfq-cases" %}
+<div id="result"></div>
+{% partial "landing/contact" %}

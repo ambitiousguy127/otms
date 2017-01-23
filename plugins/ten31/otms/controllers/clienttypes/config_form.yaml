@@ -1,0 +1,11 @@
+name: ClientTypes
+modelClass: ten31\Otms\Models\ClientType
+form: $/ten31/otms/models/clienttype/fields.yaml
+defaultRedirect: ten31/otms/clienttypes
+create:
+    redirect: 'ten31/otms/clienttypes/update/:id'
+    redirectClose: ten31/otms/clienttypes
+update:
+    redirect: ten31/otms/clienttypes
+    redirectClose: ten31/otms/clienttypes
+preview: {  }

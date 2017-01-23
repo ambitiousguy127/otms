@@ -1,0 +1,10 @@
+name: CasesStudy
+modelClass: ten31\Otms\Models\CaseStudy
+form: $/ten31/otms/models/casestudy/fields.yaml
+defaultRedirect: ten31/otms/casesstudy
+create:
+    redirect: 'ten31/otms/casesstudy/update/:id'
+    redirectClose: ten31/otms/casesstudy
+update:
+    redirect: ten31/otms/casesstudy
+    redirectClose: ten31/otms/casesstudy

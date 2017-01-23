@@ -1,0 +1,11 @@
+clienttypes:
+    label: Client Type
+    view:
+        form: $/ten31/otms/models/clienttype/fields.yaml
+        list: $/ten31/otms/models/clienttype/columns.yaml
+        toolbarButtons: create|link|unlink
+    manage:
+        showSearch: true
+        recordsPerPage: 10
+        list: $/ten31/otms/models/clienttype/columns.yaml
+        form: $/ten31/otms/models/clienttype/fields.yaml

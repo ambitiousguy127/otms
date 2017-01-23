@@ -1,0 +1,56 @@
+fields:
+    title:
+        label: Title
+        oc.commentPosition: ''
+        span: full
+        type: text
+        required: true
+    slug:
+        label: Slug
+        oc.commentPosition: ''
+        span: full
+        preset:
+            field: title
+            type: slug
+        type: text
+        required: true
+    metadescription:
+        label: 'Meta Description'
+        oc.commentPosition: ''
+        span: full
+        type: text
+    metakeywords:
+        label: 'Meta Keywords'
+        oc.commentPosition: ''
+        span: full
+        type: text
+    date:
+        label: 'Publication Date'
+        oc.commentPosition: ''
+        mode: date
+        span: full
+        type: datepicker
+        required: true
+    illustration:
+        label: Illustration
+        span: full
+        oc.commentPosition: ''
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        type: fileupload
+        required: true
+    body:
+        label: Body
+        size: huge
+        oc.commentPosition: ''
+        span: full
+        type: richeditor
+        required: true
+    active:
+        label: active
+        span: full
+        default: 1
+        type: switch

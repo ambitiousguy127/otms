@@ -1,0 +1,19 @@
+title = "o速配 门店调拨解决方案"
+url = "/osuper"
+layout = "default-submenu"
+description = "oTMS城市商圈调拨解决方案"
+is_hidden = 0
+==
+{% put herobg %}
+    {{ herobg | media }}
+{% endput %}
+
+{% put submenuelements %}
+    {% for item in staticMenu.menuItems %}
+        <li><a href="{{ item.url |app }}">{{ item.title|_ }}</a></li>
+    {% endfor %}
+{% endput %}
+
+{% partial "products/osuper" %}
+
+{% partial "section-requestdemo" %}

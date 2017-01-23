@@ -1,0 +1,8 @@
+[viewBag]
+==
+{% flash %}
+    <div class="message {{type}}-msg">
+        {{message}}
+        <a href="#" class="close-msg"><img src="{{"assets/img/close.png"|theme}}"></a>
+    </div>
+{% endflash %}

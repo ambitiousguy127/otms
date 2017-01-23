@@ -1,0 +1,38 @@
+title = "开放平台"
+url = "/openapi"
+layout = "page-norotate-1col"
+is_hidden = 0
+meta_title = "开放平台"
+
+[staticMenu staticMenu2]
+==
+<?php
+use Ten31\Dictionnary\Models\Settings;
+use Ten31\Otms\Models\Functions;
+
+function onStart(){
+    $this['herobg'] = Settings::get('hero-bg-howto');
+    $this['link'] = Settings::get('link-howto');
+    $this['responsiveLink'] = Settings::get('responsive_link');
+
+     if(Functions::getCurrentLanguage() == "en"){
+        $this['openapibtn'] = Settings::get('responsive_text_en');
+    }else{
+        $this['openapibtn'] = Settings::get('responsive_text_zh');
+
+    }
+}
+?>
+==
+
+{% put herobg %}
+    {{ herobg | media }}
+{% endput %}
+
+{% put submenuelements %}
+    {% for item in staticMenu.menuItems %}
+        <li><a href="{{ item.url |app }}">{{ item.title|_ }}</a></li>
+    {% endfor %}
+{% endput %}
+
+{%partial 'openapi/steps.htm' %}

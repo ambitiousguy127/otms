@@ -1,0 +1,81 @@
+[editable]
+
+[localePicker]
+==
+<?php
+// TODO : need to find out how to put these variables in a partial and access it everywhere
+
+use Ten31\Dictionnary\Models\Settings;
+
+function onStart(){
+    
+        // get if the domain's TLD is cn
+    if (strpos(Request::url(), '.cn') !== false){ 
+        $this['tld'] = 'cn';
+    }
+    else $this['tld'] = 'com';
+
+    // get the locale & language switch text
+    $this['locale'] = Lang::getLocale();
+    if($this['locale'] == 'zh'){
+        $this['switch_locale'] = 'en';
+        $this['switch_text'] = 'EN';
+    }
+    else{
+        $this['switch_locale'] = 'zh';
+        $this['switch_text'] = '中文';
+    }
+
+    $this['phone'] = Settings::get('com-phone');
+    $this['login_link'] = Settings::get('login_link');
+    $this['demo_link'] = Settings::get('demo_link');
+    $this['demo_target'] = Settings::get('demo_target');
+    $this['demo_text'] = Settings::get('demo_text_' . $this['locale']);
+    
+}
+?>
+==
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        {% partial "common/meta" %}
+        
+        {% partial "common/styles" %}
+        
+        {% partial "common/scripts" %}
+    
+    </head>
+
+    <body class="{% placeholder bodyclass %}">
+        
+        {% partial "header" %}
+
+        {% partial "common/sidebutton" %}
+
+
+        {% partial "common/msgarea-flash" %}
+        
+        {% partial "submenu" %}
+        
+        {% placeholder top %}
+        
+        <section class="section benefits-content-section {% placeholder sectionclass %}">
+            <div class="container">
+                <div class="row">
+                    {% partial "2col/col-left" %}
+                    {% partial "2col/col-right" %}
+                </div>
+            </div>
+        </section>
+        
+        {% page %}
+        
+        {% placeholder bottom %}
+        
+        {% partial "footer" %}
+        
+        
+
+    </body>
+</html>

@@ -1,0 +1,109 @@
+description = "default header : navbar"
+
+[viewBag]
+
+[staticMenu menuNavbar]
+code = "menu-navbar"
+==
+<?php
+use Ten31\Dictionnary\Models\Settings;
+
+
+function onStart(){
+	
+	
+    $this['logo'] = Settings::get($this->tld.'-logo');
+    
+    //if the referrer exist
+    //is not equal to base url of website
+    //and there is no referer in the session already
+    	//store the referer in the session
+    if(
+    	isset($_SERVER['HTTP_REFERER']) && 
+    	!Session::has('referer') && 
+		substr( $_SERVER['HTTP_REFERER'], 0, strlen($_SERVER['HTTP_HOST']) + 8 ) !== "https://".$_SERVER['HTTP_HOST'] &&
+		substr( $_SERVER['HTTP_REFERER'], 0, strlen($_SERVER['HTTP_HOST']) + 7 ) !== "http://".$_SERVER['HTTP_HOST'] 
+	) {
+    	Session::put('referer', $_SERVER['HTTP_REFERER']);
+    }
+    
+    //finally store the user_visited_pages of the user at each page
+    $user_visited_pages = Session::get('user_visited_pages');
+    
+    if($_SERVER['REQUEST_URI'] != "/favicon.ico") $user_visited_pages[] =  $_SERVER['REQUEST_URI'];
+    //$user_visited_pages = [];
+    
+    Session::put('user_visited_pages', $user_visited_pages);
+    
+    
+    /*
+    Log::info(json_encode(Session::get('referer')));
+    Log::info(json_encode(Session::get('user_visited_pages')));
+    print_r(Session::get('_token'));
+    $session = Session::all();
+    Debugbar::info($session);
+    Debugbar::info($_SERVER);
+    */
+    
+}
+?>
+==
+<div class="header">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav" aria-expanded="false" id="pull-right">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{'/'|app}}">
+                    <!-- different logo depending on the domain -->
+                    <img src="{{logo|media}}" alt="oTMS logo" class="img-responsive">
+
+                </a>
+                <a href="{{demo_link}}" target="{{demo_target}}">
+                    <button class="button button-orange visible-btn">{{demo_text}}</button>
+                </a>
+                {% if tld == 'cn' %}
+                <a href="{{'register'|app}}">
+                    <button class="button button-orange visible-btn">{{'会员注册'|_}}</button>
+                </a>
+                {% endif %}
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="main-nav">
+                                {% partial 'nav-menu' items=menuNavbar.menuItems class='nav navbar-nav navbar-left'%}
+
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- Registration button only on the .cn domain -->
+                    <li class="hidden-btn">
+                        <a href="{{demo_link|app}}" target="{{demo_target}}">
+                            <button class="button button-orange">{{demo_text}}</button>
+                        </a>
+                    </li>
+                    <li class="contact">
+                        <div class="text-right">
+                            <span><a href="{{login_link}}"
+                                     target="_blank">{{'登录'|_}}</a></span>
+                            <img src="{{"assets/img/user-i.png"|theme}}" alt="user" class="img-responsive">
+                            <a href="#" data-request="onSwitchLocale" data-request-data="locale: '{{switch_locale}}'">{{switch_text}}</a>
+                        </div>
+                        <div class="text-left">
+                            <img src="{{"assets/img/phone-i.png"|theme}}" alt="phone" class="img-responsive">
+                            <span>{{phone}}</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+
+        </div>
+        <!-- /.container -->
+    </nav>
+
+</div>
+<!-- End of navbar -->

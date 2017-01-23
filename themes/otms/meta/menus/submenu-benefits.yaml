@@ -1,0 +1,50 @@
+name: submenu-benefits
+items:
+    -
+        title: 货主
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: ''
+        reference: static/benefits-shippers
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 物流公司
+        type: cms-page
+        code: ''
+        reference: static/benefits-logistics
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 为什么选择云平台
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: ''
+        reference: static/why-cloud
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 成功案例
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: ''
+        reference: dynamic/case-studies
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'

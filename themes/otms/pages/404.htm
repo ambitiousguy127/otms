@@ -1,0 +1,39 @@
+title = 404
+url = "/404"
+layout = "default"
+is_hidden = 0
+
+[editable]
+==
+<?php
+use Ten31\Dictionnary\Models\Settings;
+
+function onStart(){
+
+    $this['redirectLocation'] = Settings::get('redirect_page');
+    $this['redirectTime'] = Settings::get('redirect_time');
+}
+?>
+==
+{% put scripts %}
+    <script>
+        function Redirect(){
+            window.location.href='{{redirectLocation}}';
+        }
+        setTimeout('Redirect()', {{redirectTime}});
+    </script>
+{% endput %} 
+
+<div class="container">
+    <div class="text-center" style="width: 100%; margin: 0 auto; min-height: 500px; display: table; overflow: hidden;">
+        <div style="display: table-cell; vertical-align: middle;"> <img src="{{ "404.png"|media }}">
+            <br>
+            <a href="{{ "/" |app}}" target="_blank">
+                <button class="button button-orange">返回主页</button>
+            </a>
+            <br>
+            <br>
+            <br>
+        </div>
+    </div>
+</div>

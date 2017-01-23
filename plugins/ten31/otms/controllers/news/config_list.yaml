@@ -1,0 +1,14 @@
+title: News
+modelClass: ten31\Otms\Models\News
+list: $/ten31/otms/models/news/columns.yaml
+recordUrl: 'ten31/otms/news/update/:id'
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+defaultSort: date
+recordsPerPage: 25
+filter: config_filter.yaml
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'

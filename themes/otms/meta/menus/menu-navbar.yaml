@@ -1,0 +1,360 @@
+name: menu-navbar
+items:
+    -
+        title: 价值
+        nesting: ''
+        type: header
+        url: ''
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: 货主
+                nesting: ''
+                type: cms-page
+                url: ''
+                code: ''
+                reference: static/benefits-shippers
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 物流公司
+                nesting: ''
+                type: cms-page
+                url: ''
+                code: ''
+                reference: static/benefits-logistics
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+    -
+        title: 产品及服务
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: ''
+        reference: static/products
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: 运输协同平台
+                nesting: ''
+                type: cms-page
+                url: ''
+                code: ''
+                reference: static/products
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: o速配
+                nesting: ''
+                type: url
+                url: /osuper
+                code: ''
+                reference: ''
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 开放平台
+                nesting: ''
+                type: cms-page
+                url: ''
+                code: ''
+                reference: openapi
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: oTMS优选
+                nesting: ''
+                type: cms-page
+                url: ''
+                code: ''
+                reference: static/public-carrier
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: oTMS仓库预约
+                nesting: ''
+                type: cms-page
+                url: ''
+                code: ''
+                reference: static/dock-appointment
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 为什么选择云平台
+                type: cms-page
+                code: ''
+                reference: static/why-cloud
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 如何开始
+                type: cms-page
+                code: ''
+                reference: static/how-to
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+    -
+        title: 解决方案
+        type: cms-page
+        code: ''
+        reference: static/how-to
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: 全渠道物流解决方案
+                nesting: ''
+                type: cms-page
+                url: ''
+                code: ''
+                reference: static/omni-channel
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 冷链运输解决方案
+                nesting: ''
+                type: cms-page
+                url: ''
+                code: ''
+                reference: static/coldchain
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 汽车行业解决方案
+                nesting: ''
+                type: cms-page
+                url: ''
+                code: ''
+                reference: static/vehicle
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 第三方运输解决方案
+                nesting: ''
+                type: cms-page
+                url: ''
+                code: ''
+                reference: static/3pl
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 成功案例
+                nesting: ''
+                type: cms-page
+                url: ''
+                code: ''
+                reference: dynamic/case-studies
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+    -
+        title: 关于oTMS
+        nesting: ''
+        type: header
+        url: ''
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: 成长历程
+                nesting: ''
+                type: cms-page
+                url: ''
+                code: ''
+                reference: static/company-profile
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 管理团队
+                nesting: ''
+                type: cms-page
+                url: ''
+                code: ''
+                reference: static/leaders
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+                items:
+                    -
+                        title: 联系我们
+                        nesting: ''
+                        type: cms-page
+                        url: ''
+                        code: ''
+                        reference: static/contact
+                        cmsPage: ''
+                        replace: ''
+                        viewBag:
+                            isHidden: '0'
+                            cssClass: ''
+                            isExternal: '0'
+            -
+                title: 联系我们
+                nesting: ''
+                type: cms-page
+                url: ''
+                code: ''
+                reference: static/contact
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 加入oTMS
+                nesting: ''
+                type: url
+                url: 'http://otms.gllue.me/position'
+                code: ''
+                reference: ''
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 合作伙伴
+                nesting: ''
+                type: cms-page
+                url: ''
+                code: ''
+                reference: static/partners
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+    -
+        title: 新闻资讯
+        nesting: ''
+        type: header
+        url: ''
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: 新闻
+                nesting: ''
+                type: cms-page
+                url: ''
+                code: ''
+                reference: dynamic/news
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 博客
+                nesting: ''
+                type: cms-page
+                url: ''
+                code: ''
+                reference: dynamic/blog-index
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 下载
+                nesting: ''
+                type: cms-page
+                url: ''
+                code: ''
+                reference: dynamic/downloads
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'

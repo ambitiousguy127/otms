@@ -1,0 +1,88 @@
+[viewBag]
+==
+<script>
+
+	function enableForm(){
+		$(".contact-form").removeClass('disabled');
+		$(".contact-form input").removeAttr('disabled');
+	}
+	
+	function disableForm(){
+		$(".contact-form").addClass('disabled');
+		$(".contact-form input").attr('disabled','disabled');
+	}
+	
+	$(document).on("click",".contact-form:not(.disabled) input[type='submit']",function(){
+		setTimeout(function(){
+			disableForm(); 
+		},0)
+	})
+	
+</script>
+
+<div class="contact-form">
+    <h1>{{'预约演示'|_}}</h1>
+    <form  data-request="onPrizeProcess" data-request-update="'common/msgarea-ajax': '#result'" data-request-complete="enableForm();" data-request-success="cleanFieldAfterSubmit()" accept-charset="UTF-8">
+    <!-- <form  accept-charset="UTF-8"> -->
+        <div class="form-group">
+            <input class="form-control" placeholder="{{'姓名'|_}}" name="name" type="text" style="cursor: auto;"> </div>
+        <div class="form-group">
+            <input class="form-control" placeholder="{{'手机'|_}}" name="phone" type="tel"> </div>
+        <div class="form-group">
+            <input class="form-control" placeholder="{{'电子邮箱'|_}}" name="email" type="email"> </div>
+        <div class="form-group">
+            <input class="form-control" placeholder="{{'公司名称'|_}}" name="company" type="text"> 
+        <div class="form-group">
+            <p>{{'您是从哪里了解到oTMS的？'|_}}</p>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="checkbox-wrap">
+                        <input class="css-checkbox" id="r1" name="leadSourceId" type="radio" value="1754752">
+                        <label for="r1" class="css-label">{{'线下活动'|_}}</label>
+                    </div>
+                    <div class="checkbox-wrap">
+                        <input class="css-checkbox" id="r2" name="leadSourceId" type="radio" value="1763878">
+                        <label for="r2" class="css-label">{{'搜索引擎'|_}}</label>
+                    </div>
+                    <div class="checkbox-wrap">
+                        <input class="css-checkbox" id="r3" name="leadSourceId" type="radio" value="1763877">
+                        <label for="r3" class="css-label">{{'微信微博'|_}}</label>
+                    </div>
+                    <div class="checkbox-wrap">
+                        <input class="css-checkbox" id="r4" name="leadSourceId" type="radio" value="1763880">
+                        <label for="r4" class="css-label">{{'电子邮件'|_}}</label>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="checkbox-wrap">
+                        <input class="css-checkbox" id="r5" name="leadSourceId" type="radio" value="1754753">
+                        <label for="r5" class="css-label">{{'朋友推荐'|_}}</label>
+                    </div>
+                    <div class="checkbox-wrap">
+                        <input class="css-checkbox" id="r6" name="leadSourceId" type="radio" value="1764154">
+                        <label for="r6" class="css-label">{{'合作伙伴'|_}}</label>
+                    </div>
+                    <div class="checkbox-wrap">
+                        <input class="css-checkbox" id="r7" name="leadSourceId" type="radio" value="1763874">
+                        <label for="r7" class="css-label">{{'广告'|_}}</label>
+                    </div>
+                    <div class="checkbox-wrap">
+                        <input class="css-checkbox" id="r8" name="leadSourceId" type="radio" value="1763875">
+                        <label for="r8" class="css-label">{{'网络资讯'|_}}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+            <input class="form-control"  name="user_referer" value="{{user_referer}}" type="hidden"> 
+            <input class="form-control"  name="user_visited_pages" value="{{user_visited_pages}}" type="hidden"> 
+            <input class="form-control"  name="user_session_id" value="{{user_session_id}}" type="hidden"> 
+        </div>
+            
+        <input id=prizedemo class="button button-orange center-block" type="submit" placeholder="" value="{{'预约演示'|_}}">
+<div class="form-group">
+</br>
+<small> {{'我们将在每周预约演示的客户中，抽取10名赠送oTMS定制礼品。'|_}}</small>
+</div>        
+</form>
+</div>

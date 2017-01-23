@@ -1,0 +1,84 @@
+title = "成功案例"
+url = "/case-studies"
+layout = "page-norotate-2col"
+is_hidden = 0
+meta_title = "成功案例"
+meta_description = "截止2016年，oTMS与900+企业签订合作协议，为企业提供可视化的在途运输管理，在线招投标服务，oTMS列举出重要客户的成功案例，细致描述他们选择oTMS一站式运输服务平台的理由，以及oTMS为企业物流运输管理带来的改变。"
+
+[staticMenu]
+code = "submenu-benefits"
+==
+<?php
+use Ten31\Otms\Models\CaseStudy;
+use Ten31\Otms\Models\Functions;
+use Ten31\Dictionnary\Models\Settings;
+use RainLab\Translate\Models\Locale;
+use RainLab\Translate\Classes\Translator;
+
+function onStart(){
+    
+    $this['herobg'] = Settings::get('hero-bg-casestudies');
+    $this['link'] = Settings::get('link-casestudies');
+
+    //get in the SQL all the translated models (where title is translated)
+    $lang = Functions::getCurrentLanguage();
+    $translated_cases = Functions::getTranslatedModels('ten31\Otms\Models\CaseStudy',$lang);
+    $this['casestudies'] = CaseStudy::where('active', 1)->whereIn('id', $translated_cases)->orderBy('date', 'desc')->paginate(4);
+    
+    $this['cscount'] = $this['casestudies']->count();
+    
+    $this['limit_tile_title'] = Config::get('ten31.dictionnary::str_limits.zh_newstile_title');
+    $this['limit_tile_excerpt'] = Config::get('ten31.dictionnary::str_limits.zh_newstile_excerpt');
+}
+?>
+==
+{% put colleftcontent %}
+    {% for key, casestudy in casestudies %}
+        {% if key==0 or (key % 2 == 0) %}<div class="row">{% endif %}
+            <div class="col-md-6">
+                <div class="success-box">
+                    <div class="image-wrapper">
+                        <div class="label">{{casestudy.clienttypes.name}}</div>
+                        <img src="{{ casestudy.getSuccessBoxIllustration }}" alt="" class="img-responsive">
+                    </div>
+                    <div class="success-content"> <a href="{{ 'dynamic/case-study'|page({ slug: casestudy.slug }) }}"><h2>{{ str_limit(html_strip(casestudy.title), 10) }}</h2></a>
+                        <p>{{ str_limit(html_strip(casestudy.body), 136) }}</p>
+                    </div>
+                </div>
+            </div>
+        {% if key==1 or key==3 or key == (cscount-1) %}</div>{% endif %}
+    {% endfor %}
+    <div class="content-text">
+        <nav class="text-center news-content">
+            <ul class="pagination">
+                {{ casestudies.render|raw }}
+            </ul>
+        </nav>
+    </div>
+{% endput %}
+
+{% put colrightcontent %}
+    {% partial "col-right/panel-list" %}
+    {% partial "col-right/library" %}
+{% endput %}
+
+{% put herobg %}
+    {{ herobg | media }}
+{% endput %}
+
+{% put submenuelements %}
+    {% for item in staticMenu.menuItems %}
+        <li><a href="{{ item.url |app }}">{{ item.title|_ }}</a></li>
+    {% endfor %}
+{% endput %}
+
+{% put bottom %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <img src="{{'otm-slic-logo-partner-mob.jpg'|media}}" alt="visible only on mobile" class="img-responsive mob">
+                <img src="{{'case-studies.jpg'|media}}" alt="visible only on desktop" class="img-responsive desk">
+            </div>
+        </div>
+    </div>
+{% endput %}

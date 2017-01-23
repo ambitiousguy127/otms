@@ -1,0 +1,113 @@
+// ==> blog page styles
+
+.blog-pg {
+  background: #fcf7f7;
+
+  .sidebar {
+    margin-top: 40px;
+    .library {
+      background: #fff;
+    }
+    .sign-up-block {
+      background: #fff;
+    }
+  }
+}
+.post-heading {
+  padding: 20px;
+  a {
+    color: $black-text-color;
+    span {
+      margin-right: 5px;
+    }
+  }
+  h2 {
+    margin: 5px 0;
+  }
+}
+.blog-content {
+  background: #fff;
+  margin-top: 40px;
+  border-bottom: 2px solid #e7e7e7;
+  border-radius: 4px;
+  img{
+    display: inline-block;
+    height: auto;
+    max-width: 100%;
+  }
+  .social-list {
+    span {
+      display: inline-block;
+      margin-right: 10px;
+    }
+    li {
+      padding: 0;
+      vertical-align: middle;
+      a {
+        display: inline-block;
+        width: 28px;
+        height: 28px;
+      }
+      &.social-1 > a {
+        background: url('/themes/otms/assets/img/social-sprite.png')no-repeat;
+        background-position: 0 50%;
+      }
+      &.social-2 > a {
+        background: url('/themes/otms/assets//img/social-sprite.png')no-repeat;
+        background-position: -30px 50%;
+      }
+      &.social-3 > a {
+        background: url('/themes/otms/assets//img/social-sprite.png')no-repeat;
+        background-position: -60px 50%;
+      }
+      &.social-4 > a {
+        background: url('/themes/otms/assets//img/social-sprite.png')no-repeat;
+        background-position: -90px 50%;
+      }
+    }
+  }
+  .blog-wrapper {
+    span {
+      font-size: 18px;
+    }
+    padding: 60px;
+    a {
+      color: #e67619;
+      text-decoration: none;
+    }
+  }
+}
+.blog-box {
+  border-bottom: 2px solid #e7e7e7;
+  border-radius: 4px;
+  margin-top: 20px;
+  padding: 20px;
+  background: #fff;
+  textarea {
+    width: 100%;
+    resize: none;
+    margin: 20px 0;
+    background: #fcf7f7;
+    border: 0;
+  }
+  p {
+    margin-bottom: 0;
+  }
+  a {
+    color: #e67619;
+    text-decoration: none;
+  }
+  h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+}
+.related-articles {
+
+  .media-list {
+    .media {
+      width: 49%;
+      display: inline;
+    }
+  }
+}

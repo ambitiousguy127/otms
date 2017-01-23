@@ -1,0 +1,11 @@
+list: $/ten31/otms/models/location/columns.yaml
+modelClass: ten31\Otms\Models\Location
+title: Locations
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'ten31/otms/locations/update/:id'

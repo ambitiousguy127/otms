@@ -1,0 +1,41 @@
+title = "为什么选择云平台"
+url = "/why-cloud"
+layout = "page-norotate-2col"
+is_hidden = 0
+meta_title = "为什么选择云平台"
+meta_description = "我们致力于设计、开发、推广创新的运输管理平台，以软件即服务的方式（SaaS)向用户提供服务。我们的平台型软件由来自物流领域的专业人士设计，旨在能够实现快速、低成本的部署，更方便与操作人员和管理人员使用> 。openTrans创立于2011年，致力于提高中国运输产业的效率。拥有oTMS和其他openTrans产品在中国地区唯一的销售权"
+
+[staticMenu]
+code = "submenu-benefits"
+==
+<?php
+use Ten31\Dictionnary\Models\Settings;
+function onStart(){
+    $this['herobg'] = Settings::get('hero-bg-whycloud');
+    $this['link'] = Settings::get('link-whycloud');
+
+}
+?>
+==
+{% put herobg %}
+    {{ herobg | media }}
+{% endput %}
+
+{% put submenuelements %}
+    {% for item in staticMenu.menuItems %}
+        <li><a href="{{ item.url |app }}">{{ item.title|_ }}</a></li>
+    {% endfor %}
+{% endput %}
+
+{% put colleftcontent %}
+    {% content "benefits/col-left-whycloud" %}
+{% endput %}
+
+{% put colrightcontent %}
+    {% partial "col-right/panel-list" %}
+    {% partial "col-right/library" %}
+{% endput %}
+
+{% put bottom %}
+    {% partial "section-otmsproducts" %}
+{% endput %}

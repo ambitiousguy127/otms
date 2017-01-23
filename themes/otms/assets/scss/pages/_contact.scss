@@ -1,0 +1,147 @@
+// ==> contact us page styles
+
+.contact-section {
+	&.request-demo {
+		//background: url("/themes/otms/assets/img/demo-bg.jpg")no-repeat;
+		background-size: cover;
+		background-position: 100% 0;
+		.contact-form {
+			background: transparent;
+		}
+	}
+	h1,h2 {
+		margin-top: 0;
+		color: $blue-main-color;
+	}
+	.contact-content {
+		ul {
+			padding-left: 0;
+			li {
+				list-style: none;
+				margin-bottom: 5px;
+				font-size: 18px;
+			}
+		}
+		img {
+			margin-top: 30px;
+		}
+	}
+	.contact-form {
+		background: #cef2f5;
+		padding: 20px;
+		max-width: 365px;
+		input.form-control {
+			border-radius: 0;
+			border: 0;
+		}
+		textarea {
+			resize: none;
+			border: 0;
+			border-radius: 0;
+		}
+		.margin-top {
+			margin-top: 30px;
+		}
+		input[type="text"] {
+			border-radius: 0;
+			border: 0;
+			height: 35px;
+			padding: 6px 12px;
+			font-size: 14px;
+			line-height: 1.42857;
+		}
+		input[type=checkbox].css-checkbox,
+		input[type=radio].css-checkbox {
+				position: absolute;
+				z-index: -1000;
+				left: -1000px;
+				overflow: hidden;
+				clip: rect(0 0 0 0);
+				height: 1px;
+				width: 1px;
+				margin: -1px;
+				padding: 0;
+				border: 0;
+		}
+
+		input[type=checkbox].css-checkbox + label.css-label,
+		input[type=radio].css-checkbox + label.css-label {
+			padding-left: 20px;
+			height: 15px;
+			display: inline-block;
+			background-repeat: no-repeat;
+			background-position: 0 0;
+			vertical-align: middle;
+			cursor: pointer;
+			font-weight: 400;
+		}
+
+		input[type=checkbox].css-checkbox:checked + label.css-label,
+		input[type=radio].css-checkbox:checked + label.css-label {
+			background-position: 0 -15px;
+		}
+		label.css-label {
+			background-image: url("/themes/otms/assets/img/csscheckbox.png");
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+		.checkbox-wrap {
+			margin-bottom: 10px;
+			input {
+				background: #fff;
+			}
+			span {
+				margin-left: 10px;
+				font-size: 14px;
+			}
+		}
+		.caphca {
+			input {
+				width: 48%;
+				display: inline-block;
+				&:first-child {
+					background: #52c7dc;
+					color: #fff;
+					text-align: center;
+				}
+				&:last-child {
+					float: right;
+				}
+			}
+
+		}
+	}
+}
+
+
+.message {
+	font-size: 18px;
+	padding: 10px 50px;
+	color: #fff;
+	position: relative;
+	text-align: center;
+}
+
+.close-msg {
+	position: absolute;
+	right: 20px;
+	top: 30%;
+}
+
+.success-msg {
+	background: #28a324;
+}
+
+.alert-msg {
+	background: #f2b600;
+}
+
+.error-msg {
+	background: #c10b0f;
+}
+
+

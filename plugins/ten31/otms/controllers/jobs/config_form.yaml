@@ -1,0 +1,10 @@
+name: Jobs
+form: $/ten31/otms/models/job/fields.yaml
+modelClass: ten31\Otms\Models\Job
+defaultRedirect: ten31/otms/jobs
+create:
+    redirect: 'ten31/otms/jobs/update/:id'
+    redirectClose: ten31/otms/jobs
+update:
+    redirect: ten31/otms/jobs
+    redirectClose: ten31/otms/jobs

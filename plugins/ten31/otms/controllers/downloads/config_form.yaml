@@ -1,0 +1,10 @@
+name: Downloads
+form: $/ten31/otms/models/download/fields.yaml
+modelClass: ten31\Otms\Models\Download
+defaultRedirect: ten31/otms/downloads
+create:
+    redirect: 'ten31/otms/downloads/update/:id'
+    redirectClose: ten31/otms/downloads
+update:
+    redirect: ten31/otms/downloads
+    redirectClose: ten31/otms/downloads

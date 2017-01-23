@@ -1,0 +1,25 @@
+[viewBag]
+==
+<ul class="{{class}}">
+    {% for item in items %}
+
+    {%if item.items == null %}
+    <li><a href="{{item.url}}">{{item.title|_}}</a></li>
+    {% endif %}
+
+
+    {% if item.items %}
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{item.title|_}}<span
+                class="glyphicon glyphicon-menu-down"></span></a>
+        <ul class="dropdown-menu">
+            {% for subitem in item.items %}
+            <li>
+                <a href="{{subitem.url}}">{{subitem.title|_}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </li>
+    {% endif %}
+    {% endfor %}
+</ul>

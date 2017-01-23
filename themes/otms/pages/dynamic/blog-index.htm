@@ -1,0 +1,92 @@
+title = "博客"
+url = "/blog"
+layout = "index-blog-news"
+is_hidden = 0
+meta_title = "oTMS博客"
+meta_description = "oTMS博客囊括了与oTMS相关的企业内外部博客内容，旨在帮助客户更好的了解oTMS一站式运输服务平台的理念，其中运输进化论是oTMS联合创始人段琰以其在物流行业10余年的经验，对今日中国运输发展变化的深度思考。"
+==
+<?php
+use Ten31\Otms\Models\Post;
+use Ten31\Dictionnary\Models\Settings;
+use Ten31\Otms\Models\Functions;
+
+function onStart(){
+
+    $this['limit_header_title'] = Config::get('ten31.dictionnary::str_limits.zh_indexheader_title');
+    $this['limit_header_excerpt'] = Config::get('ten31.dictionnary::str_limits.zh_indexheader_excerpt');
+    
+    $this['limit_tile_title'] = Config::get('ten31.dictionnary::str_limits.zh_fulltile_title');
+    $this['limit_tile_excerpt'] = Config::get('ten31.dictionnary::str_limits.zh_fulltile_excerpt');
+
+    if(Functions::getCurrentLanguage() == "en"){
+        $highlighted = Post::findOrFail(Settings::get('highlighted_blog_en'));
+    }else{
+        $highlighted = Post::findOrFail(Settings::get('highlighted_blog'));
+    }
+    
+
+    $this['highlighted'] = $highlighted;
+    
+    $lang = Functions::getCurrentLanguage();
+    $translated_models = Functions::getTranslatedModels('ten31\Otms\Models\Post',$lang);
+    $posts = Post::where('active', 1)->whereIn('id', $translated_models)->orderBy('date', 'desc')->paginate(12);
+    
+    //get the page # from the URL parameter
+    //$this['pagenum'] = is_int(intval(get('page')))?intval(get('page')):1;
+
+
+    $this['postscount'] = $posts->count();
+    $rows = ceil($this['postscount'] / 3); 
+    $this['posts'] = $posts;
+
+    //debug($posts);
+
+}
+?>
+==
+<section class="section blog-banner main-banner" style="padding-top: 0">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-7">
+                <a href="{{ 'dynamic/post'|page({slug: highlighted.slug}) }}"><img src="{{highlighted.getIndexIllustration}}" class="img-responsive" alt=""></a>
+            </div>
+            <div class="col-sm-5">
+                <div class="blog-details"> <a href="{{ 'dynamic/post'|page({ slug: highlighted.slug }) }}">
+                    <h2>{{str_limit(html_strip(highlighted.title), limit_header_title)}}</h2></a>
+                    <h4>{{highlighted.date}}</h4>
+                    <p>{{ str_limit(html_strip(highlighted.body), limit_header_excerpt) }} </p>
+                    <a href="{{ 'dynamic/post'|page({ slug: highlighted.slug }) }}">
+                        <button type="button" class="button button-orange" name="button">阅读更多</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section benefits-content-section">
+    <div class="container">
+
+            {% for key, post in posts %}
+                {% if key==0 or (key % 3 == 0) %}<div class="row">{% endif %}
+                    <div class="col-sm-4">
+                        <div class="success-box">
+                            <div class="image-wrapper"><img src="{{ post.getSuccessBoxIllustration }}" alt="" class="img-responsive"> </div>
+                            <div class="success-content"><a href="{{ 'dynamic/post'|page({ slug: post.slug }) }}"><h2>{{ str_limit(html_strip(post.title), limit_tile_title) }}</h2></a>
+                                <p class="date">{{post.date}}</p>
+                                <p>{{ str_limit(html_strip(post.body), limit_tile_excerpt) }} </p>
+                            </div>
+                        </div>
+                    </div>
+                {% if key==2 or key==5 or key==8 or key == (postscount-1) %}</div>{% endif %}
+            {% endfor %}
+            
+
+        <div class="content-text">
+            <nav class="text-center news-content">
+                <ul class="pagination">
+                    {{ posts.render|raw }}
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>

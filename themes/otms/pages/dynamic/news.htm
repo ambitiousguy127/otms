@@ -1,0 +1,92 @@
+title = "新闻资讯"
+url = "/news"
+layout = "page-nohero-2col"
+is_hidden = 0
+meta_title = "新闻资讯"
+meta_description = "我们致力于设计、开发、推广创新的运输管理平台，以软件即服务的方式（SaaS)向用户提供服务。我们的平台型软件由来自物流领域的专业人士设计，旨在能够实现快速、低成本的部署，更方便与操作人员和管理人员使用> 。openTrans创立于2011年，致力于提高中国运输产业的效率。拥有oTMS和其他openTrans产品在中国地区唯一的销售权"
+==
+<?php
+use Ten31\Otms\Models\News;
+use Ten31\Dictionnary\Models\Settings;
+use Ten31\Otms\Models\Functions;
+
+function onStart(){
+    
+    $this['limit_header_title'] = Config::get('ten31.dictionnary::str_limits.zh_indexheader_title');
+    $this['limit_header_excerpt'] = Config::get('ten31.dictionnary::str_limits.zh_indexheader_excerpt');
+    
+    $this['limit_tile_title'] = Config::get('ten31.dictionnary::str_limits.zh_newstile_title');
+    $this['limit_tile_excerpt'] = Config::get('ten31.dictionnary::str_limits.zh_newstile_excerpt');
+
+    if(Functions::getCurrentLanguage() == "en"){
+        $this['highlighted'] = News::findOrFail(Settings::get('highlighted_news_en'));
+    }else{
+        $this['highlighted'] = News::findOrFail(Settings::get('highlighted_news'));
+    }
+    
+    
+    $lang = Functions::getCurrentLanguage();
+    $translated_models = Functions::getTranslatedModels('ten31\Otms\Models\News',$lang);
+    $this['news'] = News::where('active', 1)->whereIn('id', $translated_models)->orderBy('date', 'desc')->paginate(8);
+
+    //debug($this['highlighted']->getIndexIllustration());
+}
+?>
+==
+{% put top %}
+{% partial "common/sidebutton" %}
+
+
+    <section class="section blog-banner main-banner" style="padding-top: 0">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-7">
+                    <a href="{{ 'dynamic/news-details'|page({slug: highlighted.slug}) }}"><img src="{{highlighted.getIndexIllustration}}" class="img-responsive" alt=""></a>
+                </div>
+                <div class="col-sm-5">
+                    <div class="blog-details"> <a href="{{ 'dynamic/news-details'|page({ slug: highlighted.slug }) }}">
+                        <h2>{{str_limit(html_strip(highlighted.title), limit_header_title)}}</h2></a>
+                        <h4>{{highlighted.date}}</h4>
+                        <p>{{ str_limit(html_strip(highlighted.body), limit_header_excerpt) }} </p>
+                        <a href="{{ 'dynamic/news-details'|page({ slug: highlighted.slug }) }}">
+                            <button type="button" class="button button-orange" name="button">阅读更多</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endput %}
+
+{% put colleftcontent %}
+
+    <div class="news-content">
+        
+        <ul class="media-list">
+            {% for key, post in news %}
+                <li class="media">
+                    <div class="media-left">
+                        <a href="{{ 'dynamic/news-details'|page({ slug: post.slug }) }}"> <img class="media-object" src="{{post.getSuccessBoxIllustration}}" alt=""> </a>
+                    </div>
+                    <div class="media-body"> <a href="{{ 'dynamic/news-details'|page({ slug: post.slug }) }}"><h3 class="media-heading">{{str_limit(html_strip(post.title), limit_tile_title)}}</h3></a>
+                        <h4>{{post.date}}</h4>
+                        <p>{{str_limit(html_strip(post.body), limit_tile_excerpt)}}</p>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+        
+        <nav class="text-center news-content">
+            <ul class="pagination">
+                {{ news.render|raw }}
+            </ul>
+        </nav>
+    </div>
+    
+{% endput %}
+
+{% put colrightcontent %}
+    {% partial "col-right/panel-list" %}
+    {% partial "col-right/library" %}
+{% endput %}

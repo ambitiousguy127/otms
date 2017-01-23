@@ -1,0 +1,11 @@
+name: Blog
+modelClass: ten31\Otms\Models\Post
+form: $/ten31/otms/models/post/fields.yaml
+defaultRedirect: ten31/otms/blog
+create:
+    redirect: 'ten31/otms/blog/update/:id'
+    redirectClose: ten31/otms/blog
+update:
+    redirect: ten31/otms/blog
+    redirectClose: ten31/otms/blog
+preview: {  }

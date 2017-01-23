@@ -1,0 +1,18 @@
+[viewBag]
+==
+<section class="contact" id="contact">
+	{% if title %}
+		<div class="title">{{title}}</div>
+	{% endif %}
+	<div class="center">	
+		<h1 class="heading">下一个优化专<br>家会是你吗？</h1>
+		<form data-request="onContactProcess" data-request-update="'common/msgarea-ajax_withredirect': '#result'" id="contactform">
+			<p><span class="icon name"><input type="text" placeholder="姓名" class="input name" name = "name"></span></p>
+			<p><span class="icon company"><input type="text" placeholder="公司" class="input company" name = "company"></span></p>
+			<p><span class="icon tel"><input type="tel" placeholder="手机" class="input tel" name="phone"></span></p>
+			<p><span class="icon email"><input type="email" placeholder="邮箱" class="input email" name="email"><em class="notice error">邮箱地址不正确</em></span></p>
+			<p><input type="submit" value="提交" class="btn submit"></p>
+			<!-- <p><a class="btn submit">提交</a></p> -->
+		</form>
+	</div>
+</section>

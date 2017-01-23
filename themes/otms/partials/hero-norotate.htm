@@ -1,0 +1,30 @@
+description = "Hero banner w/ fixed background"
+
+[viewBag]
+==
+<?php
+use Ten31\Dictionnary\Models\Settings;
+function onStart(){
+
+    $this['hero_background'] = Settings::get('hero-bg-' . $this->page->id);
+
+
+}
+?>
+==
+
+
+
+
+<div class="main-banner benefits-shippers products" style="background: url( {% placeholder herobg %} ) no-repeat center; background-size: cover;" onclick="window.location.href='{{link}}' ">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="banner-content center-block text-center">
+                    {% component 'editable' file="hero/text_benefits" %}
+                    <a href="{{demo_link}}" target="{{demo_target}}"><button class="button button-orange">{{ demo_text }}</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

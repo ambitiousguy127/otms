@@ -1,0 +1,7 @@
+fields:
+    name:
+        label: 'Author Name'
+        oc.commentPosition: ''
+        span: full
+        type: text
+        required: true

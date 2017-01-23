@@ -1,0 +1,92 @@
+title = "申请对接"
+url = "/openapi-application"
+layout = "default-submenu"
+is_hidden = 0
+==
+<?php
+use Ten31\Dictionnary\Models\Settings;
+use Ten31\Otms\Controllers\FormOpenApiHandler;
+use Ten31\Otms\Models\OpenApiForm;
+use Ten31\Otms\Models\Functions;
+use Ten31\Otms\Lang\En;
+
+
+
+
+function onStart(){
+    $this['herobg'] = Settings::get('hero-bg-demo');
+    $this['responsiveLink'] = Settings::get('responsive_link');
+
+   if(Functions::getCurrentLanguage() == "en"){
+    $this['header'] = Lang::get('ten31.otms::lang.messages.open_api_header');
+    $this['syschoice'] = Lang::get('ten31.otms::lang.messages.open_api_system');
+    $this['pos'] = Lang::get('ten31.otms::lang.fields.position');
+    $this['butt'] = Lang::get('ten31.otms::lang.fields.openapi_btn');
+    }else{
+    $this['header'] = '申请对接';
+    $this['syschoice'] = '请选择您希望对接的系统（可多选，至少选择一个):';
+    $this['pos'] = "职位";
+    $this['butt'] = "立即申请";
+    }
+
+
+}
+
+
+function onSecondFormProcess()
+{
+
+   //print_r(post());
+
+    $form_h = new FormOpenApiHandler;
+    $this['result'] = $form_h->sendOpenApiData(post(), 'openApi');
+
+
+
+if(Functions::getCurrentLanguage() == "en"){
+    if($this["result"]['status']=='success'){
+        $to = post('email');
+        $headers  = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= "Content-Type: text/html; charset=UTF-8";
+        Mail::sendTo($to, 'backend::mail.openApi_en' );
+	}
+
+}else{
+
+    if($this["result"]['status']=='success'){
+        $to = post('email');
+        $headers  = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= "Content-Type: text/html; charset=UTF-8";
+        Mail::sendTo($to, 'backend::mail.openApi' );
+	}
+}
+
+}
+?>
+==
+<script type="text/javascript">
+  function cleanFieldAfterSubmit(){
+    if($('div').hasClass('error-msg')){
+      console.log('Please Check your errors');
+    }else{
+        $('.form-control').val('');
+        $('.css-checkbox').attr('checked', false);
+      }
+    }
+
+</script>
+
+{% put submenubottom %}
+<div id="result">{% partial "common/msgarea-ajax" %}</div>
+{% endput %}
+
+
+<section class="section contact-section request-demo" style="background: url({{herobg|media}}) 100% 0 no-repeat; background-size: cover;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-6 col-md-6">
+{%partial 'forms/openapi.htm' %}
+            </div>
+        </div>
+    </div>
+</section>

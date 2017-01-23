@@ -1,0 +1,11 @@
+authors:
+    label: Author
+    view:
+        form: $/ten31/otms/models/author/fields.yaml
+        list: $/ten31/otms/models/author/columns.yaml
+        toolbarButtons: create|link|unlink
+    manage:
+        showSearch: true
+        recordsPerPage: 10
+        list: $/ten31/otms/models/author/columns.yaml
+        form: $/ten31/otms/models/author/fields.yaml

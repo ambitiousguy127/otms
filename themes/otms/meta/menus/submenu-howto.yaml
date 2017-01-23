@@ -1,0 +1,54 @@
+name: submenu-howto
+items:
+    -
+        title: 业务人员联络
+        nesting: ''
+        type: url
+        url: '#phase1'
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 提供平台演示
+        nesting: ''
+        type: url
+        url: '#phase2'
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 实施流程
+        nesting: ''
+        type: url
+        url: '#phase3'
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 企业级客服支持
+        nesting: ''
+        type: url
+        url: '#phase4'
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'

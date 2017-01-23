@@ -1,0 +1,84 @@
+[viewBag]
+==
+<?php
+use Ten31\Dictionnary\Models\Settings;
+use Ten31\Otms\Models\CaseStudy;
+use Ten31\Otms\Models\Functions;
+
+
+function onStart(){
+
+    $this['limit_tile_excerpt'] = Config::get('ten31.dictionnary::str_limits.zh_newstile_excerpt');
+    $this['limit_tile_title'] = Config::get('ten31.dictionnary::str_limits.zh_fulltile_title');
+
+    //$this['casestudies'] = CaseStudy::where('active', 1)->orderBy('date', 'desc')->take(3)->get();
+
+    if(Functions::getCurrentLanguage() == "en"){
+        $this['left'] = CaseStudy::findOrFail(Settings::get('home_highlighted_casestudy_left_en'));
+        $this['middle'] = CaseStudy::findOrFail(Settings::get('home_highlighted_casestudy_middle_en'));
+        $this['right'] = CaseStudy::findOrFail(Settings::get('home_highlighted_casestudy_right_en'));
+    }else{
+        $this['left'] = CaseStudy::findOrFail(Settings::get('home_highlighted_casestudy_left'));
+        $this['middle'] = CaseStudy::findOrFail(Settings::get('home_highlighted_casestudy_middle'));
+        $this['right'] = CaseStudy::findOrFail(Settings::get('home_highlighted_casestudy_right'));
+    }
+    
+    /*
+    Debugbar::info("TEST");
+    Debugbar::info($this['right']->title);
+    Debugbar::info($this['right']->lang('en')->title);
+    Debugbar::info($this['right']->lang('zh')->title);
+    Debugbar::info($this['right']);
+    Debugbar::info(Settings::get('home_highlighted_casestudy_middle'));
+    */
+}
+?>
+==
+<span class="anchor" id="success-section"></span>
+<section class="section success-section">
+    <div class="container">
+        <div class="row">
+            <h3 class="text-center">{{'成功案例'|_}}</h3>
+
+                <div class="col-md-4">
+                    <div class="success-box">
+                        <div class="image-wrapper"> <img src="{{left.getSuccessBoxIllustration}}" alt="left.title" class="img-responsive"> </div>
+                        <div class="success-content">
+                            <a href="{{ 'dynamic/case-study'|page({ slug: left.slug }) }}">
+                                <h2>{{ str_limit(html_strip(left.title), 20) }}</h2>
+                                <p>{{ str_limit(html_strip(left.body), 320) }}</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            <div class="col-md-4">
+                <div class="success-box">
+                    <div class="image-wrapper"> <img src="{{middle.getSuccessBoxIllustration}}" alt="middle.title" class="img-responsive"> </div>
+                    <div class="success-content">
+                        <a href="{{ 'dynamic/case-study'|page({ slug: middle.slug }) }}">
+                            <h2>{{ str_limit(html_strip(middle.title), 20) }}</h2>
+                            <p>{{ str_limit(html_strip(middle.body), 320) }}</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="success-box">
+                    <div class="image-wrapper"> <img src="{{right.getSuccessBoxIllustration}}" alt="right.title" class="img-responsive"> </div>
+                    <div class="success-content">
+                        <a href="{{ 'dynamic/case-study'|page({ slug: right.slug }) }}">
+                            <h2>{{ str_limit(html_strip(right.title), 20) }}</h2>
+                            <p>{{ str_limit(html_strip(right.body), 320) }}</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row text-center">
+            <a href="{{'/case-studies'|app}}">
+                <button class="button button-orange">{{'了解更多'|_}}</button>
+            </a>
+        </div>
+    </div>
+</section>

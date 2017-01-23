@@ -1,0 +1,144 @@
+title = "下载页面"
+url = "/download/:slug"
+layout = "page-nohero-2col"
+is_hidden = 0
+==
+<?php
+use Ten31\Otms\Models\Download;
+use Ten31\Dictionnary\Models\Settings;
+use Ten31\Otms\Controllers\FormHandler;
+
+
+function onStart(){
+    $slug = $this->param('slug');
+
+
+    $post = Download::where("slug",$slug)->first();
+    if (!$post){
+        return $this->controller->run('404');
+    }
+    $this['post'] = $post;
+
+}
+
+function onProcess(){
+//print_r(post());
+$form_handler = new FormHandler;
+$this["result"] = $form_handler->sendXiaoshouyiLead(post(), 'download');
+}
+?>
+==
+{% put scripts %}
+<script>
+    $(document).ready(function(){
+        $('.df-hide').hide();
+        //$('#show').hide();
+
+       /* function showDownload(){
+            $('.df-hide').show();
+            $('.show').hide();
+        }*/
+
+
+        function getCookie(cname){
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for(var i=0; i<ca.length; i++){
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1);
+                if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+            }
+            return " ";
+        }
+
+        if(getCookie("oTMS") == "formComplete"){
+
+            showDownload();
+        }
+
+
+        /*function checkCookie(){
+            var username = getCookie('{{name}}');
+            if (username == "{{name}}"){
+                $('.df-hide').show();
+                $('.show').hide();
+            }
+        }
+        */
+
+        checkCookie();
+    });
+
+    function checkCookie(){
+        var username = getCookie("{{name}}");
+        if (username != ""){
+            $('#show').hide();
+            $('.df-hide').show();
+
+        }
+    }
+
+    function showDownload(){
+        $('.df-hide').show();
+        $('#show').hide();
+
+
+    }
+</script>
+{% endput %}
+
+
+{% put title%}{{post.title}}{% endput %}
+{% put metaTitle%}{{post.title}}{% endput %}
+{% put metaDesc%}{{post.metadescription}}{% endput %}
+
+{% put bodyclass%}blog-pg{% endput %}
+
+{% put colleftcontent %}
+{% put submenubottom %}
+<div id="result">{% partial "common/msgarea-ajax" %}</div>
+{% endput %}
+    <div class="blog-content">
+        <div class="post-heading">
+            <h2>{{post.title}}</h2>
+            <h4>{{post.date}}</h4>
+        </div>
+        <img src="{{post.getPostIllustration}}" class="img-responsive" data-bd-imgshare-binded="1">
+        <div class="blog-wrapper">
+            {{post.body|raw}}
+            <div class="bdsharebuttonbox">
+                <a href="#" class="bds_more" data-cmd="more"></a>
+                <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+            </div>
+            <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":["qzone","tsina","weixin","tqq","tieba","sqq","ty","fbook","twi","linkedin","evernotecn","copy","print"],"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+            <a href="{{'downloads'|app}}"><span class="glyphicon glyphicon-arrow-left"></span> 返回</a>
+        </div>
+    </div>
+{% endput %}
+
+{% put colrightcontent %}
+
+    <div class="df-hide contact-section">
+        {% if post.attachement != null  %}
+        <div class="contact-form" style="margin-bottom: 20px; background: #cef2f5; text-align: center;">
+            <h2>{{'点击下方按钮下载'|_}}</h2>
+            <a href="{{post.attachement.getPath}}">
+                <button class="button button-transparent orange center-block">{{'下载'|_}}</button>
+            </a>
+        </div>
+        {% else %}
+        <div class="contact-form" style="margin-bottom: 20px; background: #cef2f5; text-align: center;">
+            <h2>{{'没有下载'|_}}</h2>
+        </div>
+        {% endif %}
+    </div>
+    <div class="contact-section contact-form" id="show">
+        {% partial "forms/download" %}
+    </div>
+    <div class="white">
+    {% partial "col-right/panel-list" %}
+    </div>
+    {% partial "col-right/library" %}
+{% endput %}

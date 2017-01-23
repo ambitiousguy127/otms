@@ -1,0 +1,10 @@
+name: Locations
+form: $/ten31/otms/models/location/fields.yaml
+modelClass: ten31\Otms\Models\Location
+defaultRedirect: ten31/otms/locations
+create:
+    redirect: 'ten31/otms/locations/update/:id'
+    redirectClose: ten31/otms/locations
+update:
+    redirect: ten31/otms/locations
+    redirectClose: ten31/otms/locations

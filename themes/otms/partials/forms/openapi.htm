@@ -1,0 +1,69 @@
+[viewBag]
+==
+<div class="contact-form">
+    <h1>{{header}}</h1>
+    <form data-request="onSecondFormProcess" data-request-update="'common/msgarea-ajax': '#result'"  data-request-success="cleanFieldAfterSubmit()" accept-charset="UTF-8">
+        <div class="form-group">
+            <input class="form-control" placeholder="{{'姓名'|_}}" name="name" type="text" style="cursor: auto;"> </div>
+        <div class="form-group">
+            <input class="form-control" placeholder="{{pos}}" name="position" type="text"></div>
+        <div class="form-group">
+            <input class="form-control" placeholder="{{'公司名称'|_}}" name="company_name" type="text"> </div>
+        <div class="form-group">
+            <input class="form-control" placeholder="{{'手机'|_}}" name="telephone" type="tel"> </div>
+        <div class="form-group">
+            <input class="form-control" placeholder="{{'电子邮箱'|_}}" name="email" type="email"> </div>
+
+        <div class="form-group">
+            <p id="h-resize">{{syschoice}}</p>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="checkbox-wrap">
+                        <input class="css-checkbox" id="r1" name="ERP" type="checkbox" value="ERP">
+                        <label for="r1" class="css-label">ERP</label>
+                    </div>
+                    </div>
+                <div class="col-sm-4">
+                    <div class="checkbox-wrap">
+                        <input class="css-checkbox" id="r2" name="WMS" type="checkbox" value="WMS">
+                        <label for="r2" class="css-label">WMS</label>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="checkbox-wrap">
+                        <input class="css-checkbox" id="r3" name="TMS" type="checkbox" value="TMS">
+                        <label for="r3" class="css-label">TMS</label>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="checkbox-wrap">
+                        <input class="css-checkbox" id="r4" name="GPS" type="checkbox" value="GPS">
+                        <label for="r4" class="css-label">GPS</label>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="checkbox-wrap">
+                        <input class="css-checkbox" id="r5" name="APP" type="checkbox" value="APP">
+                        <label for="r5" class="css-label">APP</label>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="checkbox-wrap">
+                        <input class="css-checkbox" id="r6" name="订单系统" type="checkbox" value="订单系统">
+                        <label for="r6" class="css-label">{{'订单系统'|_}}</label>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="checkbox-wrap">
+                        <input class="css-checkbox" id="r7" name="其他" type="checkbox" value="其他">
+                        <label for="r7" class="css-label">{{'其他'|_}}</label>
+                    </div>
+                </div>
+ </div>
+            </div>
+        <div class="form-group">
+            <textarea class="form-control" placeholder="{{'备注'|_}}" rows="7" name="note" cols="50"></textarea>
+        </div>
+        <input id=openApi class="button button-orange center-block" type="submit" value="{{butt}}">
+    </form>
+</div>

@@ -1,0 +1,11 @@
+title: Author
+modelClass: ten31\Otms\Models\Author
+list: $/ten31/otms/models/author/columns.yaml
+recordUrl: 'ten31/otms/author/update/:id'
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'

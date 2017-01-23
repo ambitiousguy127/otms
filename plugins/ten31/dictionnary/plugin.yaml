@@ -1,0 +1,6 @@
+plugin:
+    name: 'ten31.dictionnary::lang.plugin.name'
+    description: 'ten31.dictionnary::lang.plugin.description'
+    author: Ten31
+    icon: oc-icon-book
+    homepage: ''    

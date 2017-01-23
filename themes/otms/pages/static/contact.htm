@@ -1,0 +1,71 @@
+title = "联系我们"
+url = "/contact"
+layout = "default-submenu"
+is_hidden = 0
+meta_title = "联系我们"
+
+[editable]
+file = "about/leaders-header.htm"
+
+[staticMenu]
+code = "submenu-about"
+==
+<?php
+use Ten31\Otms\Controllers\FormHandler;
+function onProcess()
+{
+    //print_r(post());
+    $form_handler = new FormHandler;
+    $this["result"] = $form_handler->sendXiaoshouyiLead(post());
+
+}
+
+function onStart()
+{
+}
+?>
+==
+{% put submenuelements %}
+{% for item in staticMenu.menuItems %}
+<li><a href="{{ item.url |app }}">{{ item.title|_ }}</a></li>
+{% endfor %}
+{% endput %}
+
+{% put submenubottom %}
+    <div id="result">{% partial "common/msgarea-ajax" %}</div>
+{% endput %}
+{% partial "common/sidebutton" %}
+
+
+<section class="section contact-section">
+    <div class="container">
+        <div class="row">
+            <div class="content-text">
+                <div class="col-sm-7 col-md-8">
+                    <div class="contact-content">
+                        <div class="row">
+                            <div class="col-md-6">
+                                {% if tld == 'com' %}
+                                    {% component 'editable' file="contact/headquarters-com" %}
+                                {% else %}
+                                    {% component 'editable' file="contact/headquarters-cn" %}
+                                {% endif %}
+                            </div>
+                            <div class="col-md-6">
+                                {% if tld == 'com' %}
+                                    {% component 'editable' file="contact/client-support-com" %}
+                                {% else %}
+                                    {% component 'editable' file="contact/client-support-cn" %}
+                                {% endif %}
+                            </div>
+                        </div> <img src="{{"about/map.jpg"|media}}" class="img-responsive"> </div>
+                </div>
+            </div>
+            <div class="col-sm-5 col-md-4 hidden-xs">
+                <div class="sidebar">
+                    {% partial "forms/demo" %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
